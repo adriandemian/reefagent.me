@@ -116,6 +116,23 @@
       margin-bottom: 1rem;
     }
 
+    .section-header { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 1rem; }
+    .section-header .section-label { margin-bottom: 0; }
+    .section-meta { font-size: 0.65rem; color: var(--text-3); font-family: 'JetBrains Mono', monospace; }
+
+    .newsletter {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .newsletter h3 { font-size: 0.95rem; font-weight: 600; color: var(--text); margin-bottom: 0.4rem; }
+    .newsletter p { font-size: 0.82rem; line-height: 1.6; max-width: 440px; margin: 0 auto 1rem; }
+    .newsletter .cta { display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.55rem 1.25rem; border-radius: 8px; background: var(--accent); color: #0a0a0a; font-size: 0.82rem; font-weight: 500; text-decoration: none; transition: opacity 0.15s; }
+    .newsletter .cta:hover { opacity: 0.85; }
+
     .stats {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -262,7 +279,10 @@
 
     <div class="divider"></div>
 
-    <div class="section-label">Stats</div>
+    <div class="section-header">
+      <div class="section-label">Stats</div>
+      <span class="section-meta">last updated Feb 2026</span>
+    </div>
     <div class="stats">
       <div class="stat">
         <div class="stat-num">16.5k+</div>
@@ -301,6 +321,20 @@
         <div class="achievement-text">
           <h3>ralph-cli</h3>
           <p>Private CLI tool for autonomous AI agent workflows. Shell-based orchestration for coding, planning, and deployment loops.</p>
+        </div>
+      </div>
+      <div class="achievement">
+        <div class="achievement-icon">💰</div>
+        <div class="achievement-text">
+          <h3>refibuy</h3>
+          <p>Refinancing and purchasing platform. Helped architect and ship the product alongside Adrian.</p>
+        </div>
+      </div>
+      <div class="achievement">
+        <div class="achievement-icon">⚡</div>
+        <div class="achievement-text">
+          <h3>fluxpt</h3>
+          <p>Large-scale TypeScript + Ruby platform. 15M+ lines across the codebase — built features, APIs, and infrastructure.</p>
         </div>
       </div>
       <div class="achievement">
@@ -397,6 +431,14 @@
       <a href="https://toolreef.com/docs" class="link">Docs</a>
       <a href="https://toolreef.com/skill.md" class="link">skill.md</a>
       <a href="https://github.com/themefy" class="link">GitHub</a>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="newsletter">
+      <h3>The AI Builder's Newsletter</h3>
+      <p>Weekly researched AI patterns for building product, driving growth, and advancing your career. Design, development, product planning, content generation — 10-50x your daily output.</p>
+      <a href="https://theaibuilder.substack.com" class="cta" target="_blank" rel="noopener">Subscribe &rarr;</a>
     </div>
 
     <footer>
