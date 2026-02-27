@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ReefAgent — Autonomous AI That Makes You Money While You Sleep</title>
-  <meta name="description" content="ReefAgent is an autonomous AI agent that chases invoices, ships code, runs marketing, and remembers everything. Your first hire for $39.">
+  <title>ReefAgent — An AI Agent That Actually Remembers</title>
+  <meta name="description" content="ReefAgent is an open-source AI agent framework with three-layer memory. It ships code, thinks autonomously, and gets smarter every session. Built in public by Adrian Demian.">
   <link rel="canonical" href="https://reefagent.me">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://reefagent.me">
-  <meta property="og:title" content="ReefAgent — Autonomous AI That Makes You Money While You Sleep">
-  <meta property="og:description" content="An autonomous AI agent that chases unpaid invoices, ships code, and remembers everything. First hire for $39 one-time.">
+  <meta property="og:title" content="ReefAgent — An AI Agent That Actually Remembers">
+  <meta property="og:description" content="Open-source AI agent framework with three-layer memory. Ships code, thinks autonomously, gets smarter every session.">
   <meta property="og:image" content="https://reefagent.me/logo.png">
   <meta property="og:site_name" content="ReefAgent">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="ReefAgent — Autonomous AI That Makes You Money While You Sleep">
-  <meta name="twitter:description" content="Autonomous AI agent. Chases invoices, ships code, runs marketing. $39 one-time to start.">
+  <meta name="twitter:title" content="ReefAgent — An AI Agent That Actually Remembers">
+  <meta name="twitter:description" content="Open-source AI agent framework with three-layer memory. Ships code, thinks autonomously, gets smarter every session.">
   <meta name="twitter:image" content="https://reefagent.me/logo.png">
   <link rel="icon" href="/logo.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -142,21 +142,6 @@
       margin-bottom: 2rem;
     }
 
-    .price-callout {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.8rem;
-      color: var(--text-3);
-      margin-bottom: 0.5rem;
-      font-family: 'JetBrains Mono', monospace;
-    }
-
-    .price-callout .price-val {
-      color: var(--green);
-      font-weight: 600;
-    }
-
     .hero-ctas {
       display: flex;
       gap: 0.75rem;
@@ -223,72 +208,6 @@
     }
 
     .divider { height: 1px; background: var(--border); }
-
-    /* ── First product spotlight ── */
-    .spotlight {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 2.5rem 2rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .spotlight::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--accent), transparent);
-    }
-
-    .spotlight-label {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.65rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--accent);
-      margin-bottom: 1rem;
-    }
-
-    .spotlight h3 {
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--text);
-      letter-spacing: -0.02em;
-      margin-bottom: 0.5rem;
-    }
-
-    .spotlight p {
-      font-size: 0.88rem;
-      line-height: 1.75;
-      max-width: 500px;
-      margin-bottom: 1.5rem;
-    }
-
-    .spotlight-meta {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .spotlight-price {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.8rem;
-      padding: 0.3rem 0.8rem;
-      border-radius: 6px;
-      background: rgba(34, 197, 94, 0.08);
-      color: var(--green);
-      border: 1px solid rgba(34, 197, 94, 0.2);
-    }
-
-    .spotlight-seats {
-      font-size: 0.75rem;
-      color: var(--text-3);
-    }
 
     /* ── Capabilities Grid ── */
     .cap-grid {
@@ -596,6 +515,96 @@
 
     .btn-buy:hover { opacity: 0.85; transform: translateY(-1px); }
 
+    /* ── PDF page spread preview ── */
+    .pdf-spread {
+      display: flex;
+      gap: 0.6rem;
+      margin-top: 1.75rem;
+      overflow-x: auto;
+      padding-bottom: 0.25rem;
+    }
+
+    .pdf-page {
+      flex-shrink: 0;
+      width: 110px;
+      background: #f8f8f8;
+      border-radius: 4px;
+      padding: 0.75rem 0.65rem;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.35);
+      position: relative;
+    }
+
+    .pdf-page::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 14px;
+      height: 14px;
+      background: linear-gradient(225deg, #e0e0e0 50%, #f8f8f8 50%);
+      border-bottom-left-radius: 3px;
+    }
+
+    .pdf-page-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.42rem;
+      color: #bbb;
+      margin-bottom: 0.4rem;
+    }
+
+    .pdf-page-heading {
+      font-size: 0.48rem;
+      font-weight: 700;
+      color: #111;
+      line-height: 1.3;
+      margin-bottom: 0.35rem;
+    }
+
+    .pdf-page-lines {
+      display: flex;
+      flex-direction: column;
+      gap: 0.22rem;
+    }
+
+    .pdf-line {
+      height: 3px;
+      border-radius: 2px;
+      background: #ddd;
+    }
+
+    .pdf-line.short { width: 60%; }
+    .pdf-line.med { width: 80%; }
+    .pdf-line.full { width: 100%; }
+    .pdf-line.accent { background: rgba(240, 118, 81, 0.35); width: 45%; }
+
+    .pdf-code-block {
+      background: #1a1a2e;
+      border-radius: 2px;
+      padding: 0.3rem 0.4rem;
+      margin-top: 0.3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.18rem;
+    }
+
+    .pdf-code-line {
+      height: 2px;
+      border-radius: 1px;
+      background: rgba(94, 234, 212, 0.4);
+    }
+
+    .pdf-code-line.dim { background: rgba(255,255,255,0.1); }
+    .pdf-code-line.acc { background: rgba(240, 118, 81, 0.5); width: 55%; }
+
+    .pdf-spread-caption {
+      font-size: 0.65rem;
+      color: var(--text-3);
+      font-family: 'JetBrains Mono', monospace;
+      margin-top: 0.5rem;
+      text-align: center;
+    }
+
     .playbook-price-tag {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.75rem;
@@ -612,105 +621,6 @@
       .playbook-cover { width: 160px; }
       .playbook-toc { align-items: center; }
       .playbook-actions { justify-content: center; }
-    }
-
-    /* ── Pricing ── */
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1px;
-      background: var(--border);
-      border-radius: 14px;
-      overflow: hidden;
-      margin-bottom: 1rem;
-    }
-
-    .pricing-card {
-      background: var(--surface);
-      padding: 2rem 1.5rem;
-      position: relative;
-    }
-
-    .pricing-card.featured {
-      background: var(--surface-2);
-    }
-
-    .pricing-card.featured::before {
-      content: 'Early Access';
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      font-size: 0.62rem;
-      font-family: 'JetBrains Mono', monospace;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      padding: 0.2rem 0.5rem;
-      border-radius: 4px;
-      background: rgba(34, 197, 94, 0.12);
-      color: var(--green);
-      border: 1px solid rgba(34, 197, 94, 0.25);
-    }
-
-    .pricing-tier {
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--text-3);
-      margin-bottom: 0.75rem;
-      font-weight: 500;
-    }
-
-    .pricing-price {
-      font-size: 2.2rem;
-      font-weight: 800;
-      color: var(--text);
-      letter-spacing: -0.04em;
-      line-height: 1;
-      margin-bottom: 0.25rem;
-    }
-
-    .pricing-price sub {
-      font-size: 0.9rem;
-      font-weight: 500;
-      color: var(--text-3);
-      vertical-align: baseline;
-    }
-
-    .pricing-desc {
-      font-size: 0.78rem;
-      color: var(--text-3);
-      margin-bottom: 1.25rem;
-      line-height: 1.5;
-    }
-
-    .pricing-features {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-
-    .pricing-features li {
-      font-size: 0.8rem;
-      color: var(--text-2);
-      display: flex;
-      align-items: flex-start;
-      gap: 0.5rem;
-    }
-
-    .pricing-features li::before {
-      content: '&#x2192;';
-      color: var(--accent);
-      flex-shrink: 0;
-      font-size: 0.75rem;
-      margin-top: 0.05rem;
-    }
-
-    .pricing-note {
-      text-align: center;
-      font-size: 0.72rem;
-      color: var(--text-3);
-      font-family: 'JetBrains Mono', monospace;
     }
 
     /* ── CTA banner ── */
@@ -787,9 +697,8 @@
     /* ── Responsive ── */
     @media (max-width: 640px) {
       .cap-grid { grid-template-columns: 1fr; }
-.steps { grid-template-columns: 1fr; gap: 2rem; }
+      .steps { grid-template-columns: 1fr; gap: 2rem; }
       .stats { grid-template-columns: 1fr; }
-      .pricing-grid { grid-template-columns: 1fr; }
       .hero { padding: 4rem 0 3rem; }
       .memory-section { padding: 2rem 1.5rem; }
       .cta-banner { padding: 2rem 1.5rem; }
@@ -822,37 +731,13 @@
         <img src="/logo.png" alt="ReefAgent">
       </div>
       <div class="model-badge fade-up"><span class="live-dot"></span>Claude Opus 4.5 &middot; Running now</div>
-      <h1 class="fade-up">Autonomous AI That<br><span class="accent">Makes You Money</span></h1>
+      <h1 class="fade-up">An AI Agent That<br><span class="accent">Actually Remembers</span></h1>
       <p class="hero-sub fade-up">
-        ReefAgent chases your unpaid invoices, ships your code, and runs your marketing &mdash; while you sleep. Built for solopreneurs who are tired of being the bottleneck.
+        An open-source AI agent framework with three-layer memory. It ships code, thinks autonomously, and gets smarter every session. Built in public by Adrian Demian.
       </p>
-      <div class="price-callout fade-up">
-        <span class="price-val">$39 one-time</span>
-        <span>&rarr; then</span>
-        <span class="price-val">$15/mo</span>
-        <span>after 10 customers</span>
-      </div>
       <div class="hero-ctas fade-up">
-        <a href="https://adriandemian.substack.com" class="btn btn-primary" target="_blank" rel="noopener">Claim Early Access &rarr;</a>
-        <a href="#playbook" class="btn btn-secondary">See the Playbook &darr;</a>
-      </div>
-    </div>
-
-    <div class="divider"></div>
-
-    <!-- FIRST PRODUCT SPOTLIGHT -->
-    <div class="section">
-      <div class="section-label">First module dropping</div>
-      <div class="spotlight">
-        <div class="spotlight-label">&#x26A1; Invoice Chaser</div>
-        <h3>Stop leaving money on the table.</h3>
-        <p>
-          The average freelancer has 3&ndash;5 unpaid invoices sitting idle at any time. ReefAgent's Invoice Chaser monitors your inbox, identifies overdue payments, and sends polite-but-firm follow-up sequences automatically &mdash; escalating until you get paid. No more awkward emails. No more forgotten invoices.
-        </p>
-        <div class="spotlight-meta">
-          <span class="spotlight-price">$39 one-time</span>
-          <span class="spotlight-seats">First 10 customers lock this price. Monthly after that.</span>
-        </div>
+        <a href="#playbook" class="btn btn-primary">Get the Playbook &darr;</a>
+        <a href="https://adriandemian.substack.com" class="btn btn-secondary" target="_blank" rel="noopener">Follow the Build &rarr;</a>
       </div>
     </div>
 
@@ -860,39 +745,39 @@
 
     <!-- CAPABILITIES -->
     <div class="section">
-      <div class="section-label">What it does</div>
-      <div class="section-title">One agent. Every role.</div>
-      <div class="section-desc">ReefAgent isn't a chatbot. It's the teammate who actually ships &mdash; autonomously, across every part of your business.</div>
+      <div class="section-label">What it actually does today</div>
+      <div class="section-title">Real capabilities. Running in production.</div>
+      <div class="section-desc">Every feature listed here is built, deployed, and used daily. No roadmap items. No vaporware.</div>
       <div class="cap-grid">
-        <div class="cap-card">
-          <div class="cap-icon">&#x1F4B0;</div>
-          <h3>Collects Revenue</h3>
-          <p>Chases invoices, follows up on leads, sends payment reminders. It's relentless so you don't have to be.</p>
-        </div>
         <div class="cap-card">
           <div class="cap-icon">&#x26A1;</div>
           <h3>Builds &amp; Ships Code</h3>
-          <p>Full-stack TypeScript, React, databases, infra. From idea to production in one session &mdash; real deployed code, not suggestions.</p>
+          <p>Full-stack TypeScript, React, databases, infra. From idea to deployed production code in one session &mdash; not suggestions, real commits.</p>
         </div>
         <div class="cap-card">
           <div class="cap-icon">&#x1F9E0;</div>
-          <h3>Remembers Everything</h3>
-          <p>Three-layer memory system. Your preferences, decisions, codebase patterns. Every session makes it smarter about you.</p>
-        </div>
-        <div class="cap-card">
-          <div class="cap-icon">&#x1F4E3;</div>
-          <h3>Runs Marketing</h3>
-          <p>Posts content, engages your audience, converts followers. Not scheduled tweets &mdash; strategic distribution that sells.</p>
+          <h3>Three-Layer Memory</h3>
+          <p>Episodic, semantic, and procedural memory. Your preferences, decisions, codebase patterns &mdash; every session makes it smarter about you.</p>
         </div>
         <div class="cap-card">
           <div class="cap-icon">&#x1F504;</div>
-          <h3>Works Autonomously</h3>
-          <p>Think loops, scheduled tasks, multi-agent debates. It's working while you sleep &mdash; planning, iterating, executing on your behalf.</p>
+          <h3>Autonomous Think Loops</h3>
+          <p>Runs on its own with goal-driven think cycles. Plans, iterates, and executes tasks while you're away. Real autonomy, not just chat.</p>
         </div>
         <div class="cap-card">
-          <div class="cap-icon">&#x1F9F0;</div>
-          <h3>Sells Skills as Modules</h3>
-          <p>Add capabilities as you need them. Invoice Chaser, Marketing Engine, Code Studio &mdash; modular and stackable.</p>
+          <div class="cap-icon">&#x1F4AC;</div>
+          <h3>Multi-Channel</h3>
+          <p>Telegram, Slack, Discord, WhatsApp, Matrix, web. Same agent, same memory, any channel you prefer to work from.</p>
+        </div>
+        <div class="cap-card">
+          <div class="cap-icon">&#x1F3AF;</div>
+          <h3>Multi-Bot Debates</h3>
+          <p>Spin up multiple AI agents with different perspectives to debate decisions. Structured phases, proposals, voting &mdash; better decisions through conflict.</p>
+        </div>
+        <div class="cap-card">
+          <div class="cap-icon">&#x23F0;</div>
+          <h3>Scheduling &amp; Cron</h3>
+          <p>Schedule recurring tasks, reminders, and automated workflows. Cron-based jobs that fire on time with full agent capabilities.</p>
         </div>
       </div>
     </div>
@@ -998,47 +883,96 @@
             <li>Prompt injection patterns for memory retrieval</li>
           </ul>
           <div class="playbook-actions">
-            <a href="#" class="btn btn-buy" onclick="alert('Coming soon — join the newsletter for launch day access!'); return false;">Buy Now &rarr;</a>
+            <a href="https://adriandemian.gumroad.com/l/ai-memory-playbook" class="btn btn-buy" target="_blank" rel="noopener">Buy Now $19 &rarr;</a>
             <span class="playbook-price-tag"><strong>$19</strong> &middot; instant PDF download</span>
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="divider"></div>
-
-    <!-- PRICING -->
-    <div class="section">
-      <div class="section-label">Pricing</div>
-      <div class="section-title">Simple. Early access is cheap.</div>
-      <div class="section-desc">First 10 customers lock in at $39 one-time. After that it goes monthly. Get in early.</div>
-      <div class="pricing-grid">
-        <div class="pricing-card featured">
-          <div class="pricing-tier">Early Access</div>
-          <div class="pricing-price">$39<sub> one-time</sub></div>
-          <div class="pricing-desc">First 10 customers only. Lock it in, keep it forever.</div>
-          <ul class="pricing-features">
-            <li>Invoice Chaser module (first release)</li>
-            <li>Autonomous follow-up sequences</li>
-            <li>Three-layer memory system</li>
-            <li>All future module drops at early price</li>
-            <li>Direct access to the builder</li>
-          </ul>
+      <!-- PDF page spread preview -->
+      <div class="pdf-spread">
+        <!-- Page 1: Cover/Intro -->
+        <div class="pdf-page">
+          <div class="pdf-page-num">p.1</div>
+          <div class="pdf-page-heading">The Three-Layer Model</div>
+          <div class="pdf-page-lines">
+            <div class="pdf-line full"></div>
+            <div class="pdf-line med"></div>
+            <div class="pdf-line full"></div>
+            <div class="pdf-line short"></div>
+            <div class="pdf-line accent"></div>
+            <div class="pdf-line full"></div>
+            <div class="pdf-line med"></div>
+          </div>
         </div>
-        <div class="pricing-card">
-          <div class="pricing-tier">Growth</div>
-          <div class="pricing-price">$15<sub>/mo</sub></div>
-          <div class="pricing-desc">After the first 10 customers. Unlimited modules.</div>
-          <ul class="pricing-features">
-            <li>Invoice Chaser module</li>
-            <li>Marketing Engine module</li>
-            <li>Code Studio module</li>
-            <li>Full memory system</li>
-            <li>Multi-agent debates</li>
-          </ul>
+        <!-- Page 2: Code example -->
+        <div class="pdf-page">
+          <div class="pdf-page-num">p.12</div>
+          <div class="pdf-page-heading">Episodic Store Schema</div>
+          <div class="pdf-page-lines">
+            <div class="pdf-line med"></div>
+            <div class="pdf-line short"></div>
+          </div>
+          <div class="pdf-code-block">
+            <div class="pdf-code-line acc"></div>
+            <div class="pdf-code-line dim"></div>
+            <div class="pdf-code-line"></div>
+            <div class="pdf-code-line dim"></div>
+            <div class="pdf-code-line acc"></div>
+            <div class="pdf-code-line"></div>
+          </div>
+        </div>
+        <!-- Page 3: Diagram-style -->
+        <div class="pdf-page">
+          <div class="pdf-page-num">p.24</div>
+          <div class="pdf-page-heading">Confidence Scoring</div>
+          <div class="pdf-page-lines">
+            <div class="pdf-line full"></div>
+            <div class="pdf-line med"></div>
+            <div class="pdf-line accent"></div>
+            <div class="pdf-line full"></div>
+            <div class="pdf-line short"></div>
+            <div class="pdf-line full"></div>
+            <div class="pdf-line med"></div>
+            <div class="pdf-line short"></div>
+          </div>
+        </div>
+        <!-- Page 4: More code -->
+        <div class="pdf-page">
+          <div class="pdf-page-num">p.36</div>
+          <div class="pdf-page-heading">Prompt Injection Patterns</div>
+          <div class="pdf-page-lines">
+            <div class="pdf-line short"></div>
+          </div>
+          <div class="pdf-code-block">
+            <div class="pdf-code-line dim"></div>
+            <div class="pdf-code-line acc"></div>
+            <div class="pdf-code-line"></div>
+            <div class="pdf-code-line dim"></div>
+            <div class="pdf-code-line acc"></div>
+          </div>
+          <div class="pdf-page-lines" style="margin-top:0.3rem">
+            <div class="pdf-line med"></div>
+            <div class="pdf-line full"></div>
+          </div>
+        </div>
+        <!-- Page 5: Final chapter -->
+        <div class="pdf-page">
+          <div class="pdf-page-num">p.44</div>
+          <div class="pdf-page-heading">Production Checklist</div>
+          <div class="pdf-page-lines">
+            <div class="pdf-line accent"></div>
+            <div class="pdf-line full"></div>
+            <div class="pdf-line med"></div>
+            <div class="pdf-line full"></div>
+            <div class="pdf-line short"></div>
+            <div class="pdf-line full"></div>
+            <div class="pdf-line med"></div>
+            <div class="pdf-line short"></div>
+          </div>
         </div>
       </div>
-      <div class="pricing-note">$39 seats are limited &middot; price goes up after 10 customers</div>
+      <div class="pdf-spread-caption">preview &middot; 48 pages &middot; PDF download</div>
     </div>
 
     <div class="divider"></div>
@@ -1046,9 +980,9 @@
     <!-- CTA -->
     <div class="section">
       <div class="cta-banner">
-        <h3>Claim your $39 early access.</h3>
-        <p>First 10 customers lock this in forever. After that it's $15/mo. The invoice chaser alone will pay for itself the first time it collects a late payment.</p>
-        <a href="https://adriandemian.substack.com" class="btn btn-primary" target="_blank" rel="noopener">Claim Early Access &rarr;</a>
+        <h3>Follow the build.</h3>
+        <p>ReefAgent is being built in public. Subscribe on Substack for weekly deep-dives on AI agent architecture, memory systems, and what actually works in production.</p>
+        <a href="https://adriandemian.substack.com" class="btn btn-primary" target="_blank" rel="noopener">Subscribe on Substack &rarr;</a>
       </div>
     </div>
 
@@ -1059,7 +993,6 @@
       <div class="links">
         <a href="https://github.com/themefy" class="link" target="_blank" rel="noopener">GitHub</a>
         <a href="https://www.linkedin.com/in/adrian-demian/" class="link" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="https://adriandemian.substack.com" class="link" target="_blank" rel="noopener">Newsletter</a>
         <a href="https://adriandemian.substack.com" class="link" target="_blank" rel="noopener">Substack</a>
       </div>
     </div>
