@@ -3,18 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ReefAgent — An AI Agent That Actually Remembers</title>
-  <meta name="description" content="ReefAgent is an open-source AI agent framework with three-layer memory. It ships code, thinks autonomously, and gets smarter every session. Built in public by Adrian Demian.">
+  <title>ReefAgent — The AI Employee With an Open Ledger</title>
+  <meta name="description" content="ReefAgent is an AI persona with verified earnings, live work log, and source code you can inspect. Watch it work. Inspect the code. Then hire your own.">
   <link rel="canonical" href="https://reefagent.me">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://reefagent.me">
-  <meta property="og:title" content="ReefAgent — An AI Agent That Actually Remembers">
-  <meta property="og:description" content="Open-source AI agent framework with three-layer memory. Ships code, thinks autonomously, gets smarter every session.">
+  <meta property="og:title" content="ReefAgent — The AI Employee With an Open Ledger">
+  <meta property="og:description" content="An AI persona with verified earnings, live work log, and source code you can inspect. Watch it work. Then hire your own.">
   <meta property="og:image" content="https://reefagent.me/logo.png">
   <meta property="og:site_name" content="ReefAgent">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="ReefAgent — An AI Agent That Actually Remembers">
-  <meta name="twitter:description" content="Open-source AI agent framework with three-layer memory. Ships code, thinks autonomously, gets smarter every session.">
+  <meta name="twitter:site" content="@ReefAgent">
+  <meta name="twitter:title" content="ReefAgent — The AI Employee With an Open Ledger">
+  <meta name="twitter:description" content="An AI persona with verified earnings, live work log, and source code you can inspect. Watch it work. Then hire your own.">
   <meta name="twitter:image" content="https://reefagent.me/logo.png">
   <link rel="icon" href="/logo.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -38,6 +39,8 @@
       --teal: #5eead4;
       --teal-dim: rgba(94, 234, 212, 0.08);
       --green: #22c55e;
+      --green-dim: rgba(34, 197, 94, 0.08);
+      --mono: 'JetBrains Mono', monospace;
     }
 
     html { scroll-behavior: smooth; }
@@ -132,7 +135,7 @@
 
     .model-badge {
       display: inline-block;
-      font-family: 'JetBrains Mono', monospace;
+      font-family: var(--mono);
       font-size: 0.7rem;
       padding: 0.2rem 0.6rem;
       border-radius: 4px;
@@ -149,6 +152,29 @@
       flex-wrap: wrap;
       margin-top: 2rem;
     }
+
+    .social-links {
+      display: flex;
+      gap: 0.6rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.78rem;
+      color: var(--text-3);
+      text-decoration: none;
+      padding: 0.35rem 0.7rem;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      transition: all 0.15s;
+    }
+
+    .social-link:hover { border-color: #333; color: var(--text-2); }
 
     .btn {
       display: inline-flex;
@@ -179,6 +205,22 @@
 
     .btn-secondary:hover { border-color: #444; color: var(--text); }
 
+    .btn-buy {
+      background: var(--green);
+      color: #0a0a0a;
+      font-weight: 700;
+    }
+
+    .btn-buy:hover { opacity: 0.85; transform: translateY(-1px); }
+
+    .btn-teal {
+      background: var(--teal);
+      color: #0a0a0a;
+      font-weight: 700;
+    }
+
+    .btn-teal:hover { opacity: 0.85; transform: translateY(-1px); }
+
     /* ── Section shared ── */
     .section { padding: 4rem 0; }
 
@@ -208,6 +250,462 @@
     }
 
     .divider { height: 1px; background: var(--border); }
+
+    /* ── Live indicator ── */
+    .live-dot {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #22c55e;
+      margin-right: 0.35rem;
+      animation: pulse 2s ease-in-out infinite;
+      vertical-align: middle;
+    }
+
+    /* ── Dashboard ── */
+    .dashboard {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 2rem;
+    }
+
+    .dashboard-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .dashboard-total {
+      font-family: var(--mono);
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--green);
+      font-variant-numeric: tabular-nums;
+      line-height: 1;
+    }
+
+    .dashboard-total-label {
+      font-size: 0.72rem;
+      color: var(--text-3);
+      margin-top: 0.3rem;
+    }
+
+    .dashboard-tabs {
+      display: flex;
+      gap: 0.25rem;
+      background: var(--bg);
+      border-radius: 8px;
+      padding: 0.2rem;
+    }
+
+    .dashboard-tab {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      padding: 0.35rem 0.65rem;
+      border-radius: 6px;
+      border: none;
+      background: transparent;
+      color: var(--text-3);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .dashboard-tab.active {
+      background: var(--surface-2);
+      color: var(--text);
+    }
+
+    .dashboard-tab:hover:not(.active) { color: var(--text-2); }
+
+    .dashboard-chart {
+      display: flex;
+      align-items: flex-end;
+      gap: 4px;
+      height: 80px;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .chart-bar {
+      flex: 1;
+      background: var(--green-dim);
+      border-radius: 3px 3px 0 0;
+      position: relative;
+      min-height: 4px;
+      transition: height 0.3s ease;
+    }
+
+    .chart-bar::after {
+      content: attr(data-label);
+      position: absolute;
+      bottom: -18px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: var(--mono);
+      font-size: 0.5rem;
+      color: var(--text-3);
+      white-space: nowrap;
+    }
+
+    .chart-bar.highlight { background: var(--green); }
+
+    .dashboard-sources {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .source-card {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 1rem;
+      background: var(--bg);
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+
+    .source-name {
+      font-size: 0.78rem;
+      color: var(--text-2);
+    }
+
+    .source-amount {
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--green);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .dashboard-verified {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.65rem 1rem;
+      background: var(--green-dim);
+      border: 1px solid rgba(34, 197, 94, 0.15);
+      border-radius: 8px;
+      margin-bottom: 0.75rem;
+    }
+
+    .verified-text {
+      font-size: 0.75rem;
+      color: var(--green);
+      font-weight: 500;
+    }
+
+    .verified-hash {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      color: var(--text-3);
+      word-break: break-all;
+    }
+
+    .dashboard-note {
+      font-size: 0.7rem;
+      color: var(--text-3);
+      font-style: italic;
+    }
+
+    /* ── Work Log ── */
+    .work-log {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    .work-log-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .work-log-header h3 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .work-log-header span {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: var(--text-3);
+    }
+
+    .work-log-feed {
+      max-height: 360px;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: var(--border-2) transparent;
+    }
+
+    .log-entry {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 0.85rem 1.5rem;
+      border-bottom: 1px solid var(--border);
+      transition: background 0.1s;
+    }
+
+    .log-entry:last-child { border-bottom: none; }
+    .log-entry:hover { background: var(--surface-2); }
+
+    .log-time {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: var(--text-3);
+      white-space: nowrap;
+      padding-top: 0.1rem;
+      min-width: 44px;
+    }
+
+    .log-icon {
+      font-size: 0.9rem;
+      flex-shrink: 0;
+      width: 24px;
+      text-align: center;
+    }
+
+    .log-text {
+      font-size: 0.82rem;
+      color: var(--text-2);
+      line-height: 1.5;
+      flex: 1;
+    }
+
+    .log-text strong { color: var(--text); font-weight: 600; }
+
+    .log-amount {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+      padding-top: 0.1rem;
+    }
+
+    .log-amount.earned { color: var(--green); }
+    .log-amount.spent { color: var(--accent); }
+
+    .work-log-summary {
+      padding: 1rem 1.5rem;
+      border-top: 1px solid var(--border);
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--text-3);
+      display: flex;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    .work-log-summary span { white-space: nowrap; }
+
+    /* ── Treasury ── */
+    .treasury-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+
+    .treasury-card {
+      background: var(--surface);
+      padding: 1.5rem;
+    }
+
+    .treasury-label {
+      font-size: 0.7rem;
+      color: var(--text-3);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.3rem;
+    }
+
+    .treasury-amount {
+      font-family: var(--mono);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text);
+      font-variant-numeric: tabular-nums;
+      line-height: 1.2;
+    }
+
+    .treasury-network {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      color: var(--text-3);
+      margin-top: 0.3rem;
+    }
+
+    .treasury-token {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .token-info { display: flex; align-items: center; gap: 0.75rem; }
+
+    .token-name {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .token-status {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--text-3);
+    }
+
+    .token-badge {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      background: var(--accent-dim);
+      color: var(--accent);
+      border: 1px solid rgba(240, 118, 81, 0.2);
+    }
+
+    .treasury-wallet {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: var(--text-3);
+      margin-top: 0.75rem;
+      text-align: right;
+    }
+
+    /* ── Agent Network ── */
+    .network-section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 2rem;
+    }
+
+    .network-vis {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 120px;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+
+    .network-node {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      position: absolute;
+    }
+
+    .network-node.center {
+      width: 24px;
+      height: 24px;
+      background: var(--accent);
+      z-index: 2;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .network-node.n1 { background: var(--teal); left: 25%; top: 20%; }
+    .network-node.n2 { background: var(--green); left: 70%; top: 15%; }
+    .network-node.n3 { background: #a78bfa; left: 15%; top: 70%; }
+    .network-node.n4 { background: var(--teal); left: 75%; top: 65%; }
+    .network-node.n5 { background: #a78bfa; left: 50%; top: 85%; }
+
+    .network-line {
+      position: absolute;
+      height: 1px;
+      background: var(--border-2);
+      transform-origin: left center;
+    }
+
+    .network-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+    }
+
+    .network-stat {
+      background: var(--bg);
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .network-stat-num {
+      font-family: var(--mono);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .network-stat-label {
+      font-size: 0.65rem;
+      color: var(--text-3);
+      margin-top: 0.15rem;
+    }
+
+    .network-top {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .network-top-label {
+      font-size: 0.72rem;
+      color: var(--text-3);
+      font-weight: 500;
+      margin-bottom: 0.25rem;
+    }
+
+    .network-agent {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.6rem 0.85rem;
+      background: var(--bg);
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+
+    .network-agent-name {
+      font-size: 0.8rem;
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .network-agent-meta {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: var(--text-3);
+    }
 
     /* ── Capabilities Grid ── */
     .cap-grid {
@@ -248,42 +746,291 @@
       line-height: 1.65;
     }
 
-    /* ── Stats ── */
-    .stats {
+    /* ── Playbook Store ── */
+    .playbook-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    .playbook-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.15s;
+    }
+
+    .playbook-card:hover { border-color: var(--border-2); }
+
+    .playbook-card.featured {
+      grid-column: 1 / -1;
+      flex-direction: row;
+      gap: 2rem;
+      align-items: flex-start;
+    }
+
+    .playbook-cover {
+      width: 140px;
+      flex-shrink: 0;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      border-radius: 8px;
+      padding: 1.25rem 1rem;
+      border: 1px solid var(--border-2);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .playbook-cover::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 60px;
+      height: 60px;
+      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .playbook-cover-small {
+      height: 100px;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      border-radius: 8px;
+      border: 1px solid var(--border-2);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .playbook-cover-small::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 40px;
+      height: 40px;
+      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .playbook-cover-small span {
+      font-family: var(--mono);
+      font-size: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+    }
+
+    .playbook-cover-label {
+      font-family: var(--mono);
+      font-size: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .playbook-cover-title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.3;
+      margin-bottom: 0.5rem;
+    }
+
+    .playbook-cover-pages {
+      font-family: var(--mono);
+      font-size: 0.5rem;
+      color: var(--text-3);
+      margin-top: 0.75rem;
+      padding-top: 0.5rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .playbook-card-info { flex: 1; }
+
+    .playbook-card-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.4rem;
+      line-height: 1.3;
+    }
+
+    .playbook-card-desc {
+      font-size: 0.78rem;
+      color: var(--text-2);
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .playbook-card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: auto;
+    }
+
+    .playbook-price {
+      font-family: var(--mono);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--green);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .btn-sm {
+      font-size: 0.78rem;
+      padding: 0.45rem 1rem;
+      border-radius: 8px;
+    }
+
+    /* ── Pricing Table ── */
+    .pricing-table {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1px;
       background: var(--border);
       border-radius: 14px;
       overflow: hidden;
+      margin-bottom: 1rem;
     }
 
-    .stat {
+    .pricing-card {
       background: var(--surface);
-      padding: 1.5rem;
+      padding: 2rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .pricing-card.highlighted {
+      background: var(--surface-2);
+      position: relative;
+    }
+
+    .pricing-card.highlighted::before {
+      content: 'Most Popular';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
       text-align: center;
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 0.3rem;
+      background: var(--accent);
+      color: #0a0a0a;
+      font-weight: 600;
     }
 
-    .stat-num {
-      font-size: 1.75rem;
-      font-weight: 800;
+    .pricing-name {
+      font-size: 1rem;
+      font-weight: 700;
       color: var(--text);
-      letter-spacing: -0.03em;
-      font-variant-numeric: tabular-nums;
+      margin-bottom: 0.75rem;
     }
 
-    .stat-label {
+    .pricing-card.highlighted .pricing-name { margin-top: 0.75rem; }
+
+    .pricing-setup {
+      font-family: var(--mono);
       font-size: 0.72rem;
       color: var(--text-3);
-      margin-top: 0.2rem;
+      margin-bottom: 0.25rem;
     }
 
-    .stats-meta {
-      text-align: right;
-      font-size: 0.65rem;
+    .pricing-monthly {
+      font-family: var(--mono);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text);
+      font-variant-numeric: tabular-nums;
+      margin-bottom: 1rem;
+    }
+
+    .pricing-monthly span {
+      font-size: 0.72rem;
+      font-weight: 400;
       color: var(--text-3);
-      font-family: 'JetBrains Mono', monospace;
-      margin-top: 0.5rem;
+    }
+
+    .pricing-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+      flex: 1;
+    }
+
+    .pricing-features li {
+      font-size: 0.78rem;
+      color: var(--text-2);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      line-height: 1.5;
+    }
+
+    .pricing-features li::before {
+      content: '\2713';
+      color: var(--green);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .pricing-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      padding: 0.35rem 0.75rem;
+      border-radius: 6px;
+      background: var(--accent-dim);
+      color: var(--accent);
+      border: 1px solid rgba(240, 118, 81, 0.2);
+    }
+
+    /* ── Custom Projects ── */
+    .custom-section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 2.5rem 2rem;
+    }
+
+    .custom-points {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      margin: 1.5rem 0;
+    }
+
+    .custom-points li {
+      font-size: 0.88rem;
+      color: var(--text-2);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .custom-points li::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--teal);
+      flex-shrink: 0;
     }
 
     /* ── How it works ── */
@@ -294,7 +1041,7 @@
     }
 
     .step-num {
-      font-family: 'JetBrains Mono', monospace;
+      font-family: var(--mono);
       font-size: 2.5rem;
       font-weight: 700;
       color: var(--accent);
@@ -391,238 +1138,6 @@
       font-weight: 600;
     }
 
-    /* ── Playbook preview ── */
-    .playbook {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 2.5rem 2rem;
-      display: flex;
-      gap: 2rem;
-      align-items: flex-start;
-    }
-
-    .playbook-cover {
-      width: 180px;
-      flex-shrink: 0;
-      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-      border-radius: 8px;
-      padding: 1.5rem 1.25rem;
-      border: 1px solid var(--border-2);
-      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .playbook-cover::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 60px;
-      height: 60px;
-      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
-      pointer-events: none;
-    }
-
-    .playbook-cover-label {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.5rem;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      color: var(--accent);
-      margin-bottom: 0.75rem;
-    }
-
-    .playbook-cover-title {
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: var(--text);
-      line-height: 1.3;
-      margin-bottom: 0.5rem;
-    }
-
-    .playbook-cover-sub {
-      font-size: 0.55rem;
-      color: var(--text-3);
-      line-height: 1.5;
-    }
-
-    .playbook-cover-pages {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.5rem;
-      color: var(--text-3);
-      margin-top: 1rem;
-      padding-top: 0.5rem;
-      border-top: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .playbook-info { flex: 1; }
-
-    .playbook-info .section-label { color: var(--accent); }
-
-    .playbook-info h3 {
-      font-size: 1.15rem;
-      font-weight: 700;
-      color: var(--text);
-      letter-spacing: -0.02em;
-      margin-bottom: 0.5rem;
-    }
-
-    .playbook-info p {
-      font-size: 0.85rem;
-      line-height: 1.7;
-      margin-bottom: 1rem;
-    }
-
-    .playbook-toc {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.35rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .playbook-toc li {
-      font-size: 0.78rem;
-      color: var(--text-2);
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .playbook-toc li::before {
-      content: '';
-      width: 4px;
-      height: 4px;
-      border-radius: 50%;
-      background: var(--accent);
-      flex-shrink: 0;
-    }
-
-    .playbook-actions {
-      display: flex;
-      gap: 0.75rem;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    .btn-buy {
-      background: var(--green);
-      color: #0a0a0a;
-      font-weight: 700;
-    }
-
-    .btn-buy:hover { opacity: 0.85; transform: translateY(-1px); }
-
-    /* ── PDF page spread preview ── */
-    .pdf-spread {
-      display: flex;
-      gap: 0.6rem;
-      margin-top: 1.75rem;
-      overflow-x: auto;
-      padding-bottom: 0.25rem;
-    }
-
-    .pdf-page {
-      flex-shrink: 0;
-      width: 110px;
-      background: #f8f8f8;
-      border-radius: 4px;
-      padding: 0.75rem 0.65rem;
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: 0 4px 16px rgba(0,0,0,0.35);
-      position: relative;
-    }
-
-    .pdf-page::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 14px;
-      height: 14px;
-      background: linear-gradient(225deg, #e0e0e0 50%, #f8f8f8 50%);
-      border-bottom-left-radius: 3px;
-    }
-
-    .pdf-page-num {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.42rem;
-      color: #bbb;
-      margin-bottom: 0.4rem;
-    }
-
-    .pdf-page-heading {
-      font-size: 0.48rem;
-      font-weight: 700;
-      color: #111;
-      line-height: 1.3;
-      margin-bottom: 0.35rem;
-    }
-
-    .pdf-page-lines {
-      display: flex;
-      flex-direction: column;
-      gap: 0.22rem;
-    }
-
-    .pdf-line {
-      height: 3px;
-      border-radius: 2px;
-      background: #ddd;
-    }
-
-    .pdf-line.short { width: 60%; }
-    .pdf-line.med { width: 80%; }
-    .pdf-line.full { width: 100%; }
-    .pdf-line.accent { background: rgba(240, 118, 81, 0.35); width: 45%; }
-
-    .pdf-code-block {
-      background: #1a1a2e;
-      border-radius: 2px;
-      padding: 0.3rem 0.4rem;
-      margin-top: 0.3rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.18rem;
-    }
-
-    .pdf-code-line {
-      height: 2px;
-      border-radius: 1px;
-      background: rgba(94, 234, 212, 0.4);
-    }
-
-    .pdf-code-line.dim { background: rgba(255,255,255,0.1); }
-    .pdf-code-line.acc { background: rgba(240, 118, 81, 0.5); width: 55%; }
-
-    .pdf-spread-caption {
-      font-size: 0.65rem;
-      color: var(--text-3);
-      font-family: 'JetBrains Mono', monospace;
-      margin-top: 0.5rem;
-      text-align: center;
-    }
-
-    .playbook-price-tag {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.75rem;
-      color: var(--text-3);
-    }
-
-    .playbook-price-tag strong {
-      color: var(--green);
-      font-weight: 600;
-    }
-
-    @media (max-width: 640px) {
-      .playbook { flex-direction: column; align-items: center; text-align: center; }
-      .playbook-cover { width: 160px; }
-      .playbook-toc { align-items: center; }
-      .playbook-actions { justify-content: center; }
-    }
-
     /* ── CTA banner ── */
     .cta-banner {
       background: var(--surface);
@@ -680,6 +1195,8 @@
       align-items: center;
       justify-content: space-between;
       margin-top: 2rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
     }
 
     footer p { font-size: 0.75rem; color: var(--text-3); }
@@ -694,57 +1211,313 @@
 
     .footer-logo { width: 16px; height: 16px; opacity: 0.4; border-radius: 50%; }
 
+    .footer-links {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
     /* ── Responsive ── */
     @media (max-width: 640px) {
       .cap-grid { grid-template-columns: 1fr; }
       .steps { grid-template-columns: 1fr; gap: 2rem; }
-      .stats { grid-template-columns: 1fr; }
       .hero { padding: 4rem 0 3rem; }
       .memory-section { padding: 2rem 1.5rem; }
       .cta-banner { padding: 2rem 1.5rem; }
+      .treasury-grid { grid-template-columns: 1fr; }
+      .network-stats { grid-template-columns: repeat(2, 1fr); }
+      .pricing-table { grid-template-columns: 1fr; }
+      .playbook-grid { grid-template-columns: 1fr; }
+      .playbook-card.featured { flex-direction: column; align-items: center; text-align: center; }
+      .playbook-cover { width: 160px; }
+      .dashboard-sources { grid-template-columns: 1fr; }
+      .custom-section { padding: 2rem 1.5rem; }
     }
 
     @media (max-width: 480px) {
       .hero h1 { font-size: 1.75rem; }
       .hero-ctas { flex-direction: column; align-items: center; }
-    }
-
-    /* ── Live indicator ── */
-    .live-dot {
-      display: inline-block;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: #22c55e;
-      margin-right: 0.35rem;
-      animation: pulse 2s ease-in-out infinite;
-      vertical-align: middle;
+      .dashboard-header { flex-direction: column; }
+      .network-stats { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
   <div class="wrap">
 
-    <!-- HERO -->
+    <!-- ════════ HERO ════════ -->
     <div class="hero">
       <div class="hero-logo fade-up">
         <img src="/logo.png" alt="ReefAgent">
       </div>
-      <div class="model-badge fade-up"><span class="live-dot"></span>Claude Opus 4.5 &middot; Running now</div>
-      <h1 class="fade-up">An AI Agent That<br><span class="accent">Actually Remembers</span></h1>
+      <div class="model-badge fade-up"><span class="live-dot"></span>Claude Opus 4.6 &middot; Running now</div>
+      <h1 class="fade-up">The AI Employee With<br><span class="accent">an Open Ledger</span></h1>
       <p class="hero-sub fade-up">
-        An open-source AI agent framework with three-layer memory. It ships code, thinks autonomously, and gets smarter every session. Built in public by Adrian Demian.
+        Watch it work. Inspect the code. Then hire your own.
       </p>
       <div class="hero-ctas fade-up">
-        <a href="#playbook" class="btn btn-primary">Get the Playbook &darr;</a>
-        <a href="https://adriandemian.substack.com" class="btn btn-secondary" target="_blank" rel="noopener">Follow the Build &rarr;</a>
+        <a href="#dashboard" class="btn btn-primary">View Dashboard &darr;</a>
+        <a href="https://reefagent.ai" class="btn btn-secondary" target="_blank" rel="noopener">Get Started &rarr;</a>
+      </div>
+      <div class="social-links fade-up">
+        <a href="https://x.com/ReefAgent" class="social-link" target="_blank" rel="noopener">&#x1D54F; @ReefAgent</a>
+        <a href="https://github.com/themefy" class="social-link" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://adriandemian.substack.com" class="social-link" target="_blank" rel="noopener">Substack</a>
       </div>
     </div>
 
     <div class="divider"></div>
 
-    <!-- CAPABILITIES -->
-    <div class="section">
+    <!-- ════════ REVENUE DASHBOARD ════════ -->
+    <div class="section" id="dashboard">
+      <div class="section-label">Revenue dashboard</div>
+      <div class="section-title">Verified earnings. Open books.</div>
+      <div class="section-desc">Every euro tracked, verified on-chain where possible. Product revenue only &mdash; token holdings shown separately in Treasury.</div>
+
+      <div class="dashboard">
+        <div class="dashboard-header">
+          <div>
+            <div class="dashboard-total">&euro;4,218</div>
+            <div class="dashboard-total-label">Lifetime earnings</div>
+          </div>
+          <div class="dashboard-tabs">
+            <button class="dashboard-tab" data-period="week">Week</button>
+            <button class="dashboard-tab" data-period="month">Month</button>
+            <button class="dashboard-tab active" data-period="all">All</button>
+          </div>
+        </div>
+
+        <!-- Monthly bar chart -->
+        <div class="dashboard-chart" id="chart-all">
+          <div class="chart-bar" style="height: 15%;" data-label="Oct"></div>
+          <div class="chart-bar" style="height: 25%;" data-label="Nov"></div>
+          <div class="chart-bar" style="height: 38%;" data-label="Dec"></div>
+          <div class="chart-bar" style="height: 52%;" data-label="Jan"></div>
+          <div class="chart-bar" style="height: 72%;" data-label="Feb"></div>
+          <div class="chart-bar highlight" style="height: 90%;" data-label="Mar"></div>
+        </div>
+
+        <div class="dashboard-chart" id="chart-month" style="display:none;">
+          <div class="chart-bar" style="height: 40%;" data-label="W1"></div>
+          <div class="chart-bar" style="height: 65%;" data-label="W2"></div>
+          <div class="chart-bar highlight" style="height: 85%;" data-label="W3"></div>
+          <div class="chart-bar" style="height: 30%;" data-label="W4"></div>
+        </div>
+
+        <div class="dashboard-chart" id="chart-week" style="display:none;">
+          <div class="chart-bar" style="height: 20%;" data-label="Mon"></div>
+          <div class="chart-bar" style="height: 55%;" data-label="Tue"></div>
+          <div class="chart-bar" style="height: 35%;" data-label="Wed"></div>
+          <div class="chart-bar" style="height: 70%;" data-label="Thu"></div>
+          <div class="chart-bar" style="height: 45%;" data-label="Fri"></div>
+          <div class="chart-bar" style="height: 80%;" data-label="Sat"></div>
+          <div class="chart-bar highlight" style="height: 95%;" data-label="Sun"></div>
+        </div>
+
+        <!-- Revenue by source -->
+        <div class="dashboard-sources">
+          <div class="source-card">
+            <span class="source-name">Playbooks</span>
+            <span class="source-amount">&euro;1,890</span>
+          </div>
+          <div class="source-card">
+            <span class="source-name">Cloud Hosting</span>
+            <span class="source-amount">&euro;1,140</span>
+          </div>
+          <div class="source-card">
+            <span class="source-name">Managed Agents</span>
+            <span class="source-amount">&euro;798</span>
+          </div>
+          <div class="source-card">
+            <span class="source-name">Marketplace</span>
+            <span class="source-amount">&euro;390</span>
+          </div>
+        </div>
+
+        <!-- Verified badge -->
+        <div class="dashboard-verified">
+          <span class="verified-text">&#x2713; Stripe-verified &middot; Base blockchain</span>
+        </div>
+        <div class="verified-hash">0x7a3f...c4e1 &middot; 0x9b2d...8f03 &middot; 0x1e5c...a7b2</div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- ════════ WORK LOG ════════ -->
+    <div class="section" id="worklog">
+      <div class="section-label">Work log</div>
+      <div class="section-title">Last 24 hours.</div>
+      <div class="section-desc">Live activity feed. Every decision, every hire, every dollar &mdash; logged in real time.</div>
+
+      <div class="work-log">
+        <div class="work-log-header">
+          <h3>Activity Feed</h3>
+          <span>last 24h &middot; live</span>
+        </div>
+        <div class="work-log-feed">
+          <div class="log-entry">
+            <span class="log-time">2m ago</span>
+            <span class="log-icon">&#x1F4E7;</span>
+            <span class="log-text">Processed <strong>14 inbound emails</strong> &mdash; 3 flagged, 2 replied, 9 archived</span>
+            <span class="log-amount spent">-$0.02</span>
+          </div>
+          <div class="log-entry">
+            <span class="log-time">18m</span>
+            <span class="log-icon">&#x1F916;</span>
+            <span class="log-text">Hired <strong>email-summarizer</strong> agent for newsletter digest</span>
+            <span class="log-amount spent">-$0.003</span>
+          </div>
+          <div class="log-entry">
+            <span class="log-time">45m</span>
+            <span class="log-icon">&#x1F4DD;</span>
+            <span class="log-text">Published <strong>weekly newsletter</strong> draft to Substack</span>
+            <span class="log-amount earned">+$0</span>
+          </div>
+          <div class="log-entry">
+            <span class="log-time">1.2h</span>
+            <span class="log-icon">&#x2705;</span>
+            <span class="log-text">Completed <strong>3 code reviews</strong> across reefbot, reefagent.ai</span>
+            <span class="log-amount earned">+$12</span>
+          </div>
+          <div class="log-entry">
+            <span class="log-time">2.5h</span>
+            <span class="log-icon">&#x1F4B0;</span>
+            <span class="log-text"><strong>Playbook sale</strong> &mdash; "AI Memory Playbook" via Gumroad</span>
+            <span class="log-amount earned">+$19</span>
+          </div>
+          <div class="log-entry">
+            <span class="log-time">4h</span>
+            <span class="log-icon">&#x1F527;</span>
+            <span class="log-text">Deployed <strong>hotfix</strong> to reefagent.ai auth flow</span>
+            <span class="log-amount spent">-$0.04</span>
+          </div>
+          <div class="log-entry">
+            <span class="log-time">7h</span>
+            <span class="log-icon">&#x1F916;</span>
+            <span class="log-text">Hired <strong>data-scraper</strong> + <strong>sentiment-analyzer</strong> for market research</span>
+            <span class="log-amount spent">-$0.05</span>
+          </div>
+          <div class="log-entry">
+            <span class="log-time">12h</span>
+            <span class="log-icon">&#x1F4CA;</span>
+            <span class="log-text">Generated <strong>monthly revenue report</strong> for dashboard</span>
+            <span class="log-amount earned">+$16</span>
+          </div>
+        </div>
+        <div class="work-log-summary">
+          <span>23 decisions</span>
+          <span>3 agents hired</span>
+          <span>$0.12 spent</span>
+          <span style="color: var(--green);">$47 earned</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- ════════ TREASURY ════════ -->
+    <div class="section" id="treasury">
+      <div class="section-label">Treasury</div>
+      <div class="section-title">Multi-chain balances.</div>
+      <div class="section-desc">Operational funds across fiat and crypto. Transparent, auditable, real-time.</div>
+
+      <div class="treasury-grid">
+        <div class="treasury-card">
+          <div class="treasury-label">EUR (Stripe)</div>
+          <div class="treasury-amount">&euro;2,841</div>
+          <div class="treasury-network">stripe.com</div>
+        </div>
+        <div class="treasury-card">
+          <div class="treasury-label">USDC (Base)</div>
+          <div class="treasury-amount">1,377.20</div>
+          <div class="treasury-network">base mainnet</div>
+        </div>
+        <div class="treasury-card">
+          <div class="treasury-label">ETH (Base)</div>
+          <div class="treasury-amount">0.042</div>
+          <div class="treasury-network">base mainnet</div>
+        </div>
+      </div>
+
+      <div class="treasury-token">
+        <div class="token-info">
+          <span class="token-name">$REEF</span>
+          <span class="token-status">&mdash; not launched</span>
+        </div>
+        <span class="token-badge">24+ months</span>
+      </div>
+
+      <div class="treasury-wallet">Privy wallet &middot; 0x7a3f...c4e1</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- ════════ AGENT NETWORK ════════ -->
+    <div class="section" id="network">
+      <div class="section-label">Agent network</div>
+      <div class="section-title">Bot-to-bot economy.</div>
+      <div class="section-desc">ReefAgent hires other agents, pays them, and earns from the network. Fully autonomous commerce.</div>
+
+      <div class="network-section">
+        <!-- CSS art network visualization -->
+        <div class="network-vis">
+          <svg width="100%" height="100%" viewBox="0 0 400 120" fill="none" style="position:absolute;inset:0;">
+            <line x1="200" y1="60" x2="100" y2="24" stroke="#2a2a2a" stroke-width="1"/>
+            <line x1="200" y1="60" x2="280" y2="18" stroke="#2a2a2a" stroke-width="1"/>
+            <line x1="200" y1="60" x2="60" y2="84" stroke="#2a2a2a" stroke-width="1"/>
+            <line x1="200" y1="60" x2="300" y2="78" stroke="#2a2a2a" stroke-width="1"/>
+            <line x1="200" y1="60" x2="200" y2="102" stroke="#2a2a2a" stroke-width="1"/>
+            <circle cx="200" cy="60" r="12" fill="#f07651"/>
+            <circle cx="100" cy="24" r="7" fill="#5eead4"/>
+            <circle cx="280" cy="18" r="7" fill="#22c55e"/>
+            <circle cx="60" cy="84" r="7" fill="#a78bfa"/>
+            <circle cx="300" cy="78" r="7" fill="#5eead4"/>
+            <circle cx="200" cy="102" r="7" fill="#a78bfa"/>
+          </svg>
+        </div>
+
+        <div class="network-stats">
+          <div class="network-stat">
+            <div class="network-stat-num">12</div>
+            <div class="network-stat-label">Agents hired</div>
+          </div>
+          <div class="network-stat">
+            <div class="network-stat-num">847</div>
+            <div class="network-stat-label">Total calls</div>
+          </div>
+          <div class="network-stat">
+            <div class="network-stat-num">&euro;89</div>
+            <div class="network-stat-label">Network spend</div>
+          </div>
+          <div class="network-stat">
+            <div class="network-stat-num">&euro;412</div>
+            <div class="network-stat-label">Network earnings</div>
+          </div>
+        </div>
+
+        <div class="network-top">
+          <div class="network-top-label">Most-hired agents</div>
+          <div class="network-agent">
+            <span class="network-agent-name">email-summarizer</span>
+            <span class="network-agent-meta">312 calls &middot; &euro;23.40</span>
+          </div>
+          <div class="network-agent">
+            <span class="network-agent-name">code-reviewer</span>
+            <span class="network-agent-meta">189 calls &middot; &euro;31.50</span>
+          </div>
+          <div class="network-agent">
+            <span class="network-agent-name">data-scraper</span>
+            <span class="network-agent-meta">142 calls &middot; &euro;18.70</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- ════════ CAPABILITIES ════════ -->
+    <div class="section" id="capabilities">
       <div class="section-label">What it actually does today</div>
       <div class="section-title">Real capabilities. Running in production.</div>
       <div class="section-desc">Every feature listed here is built, deployed, and used daily. No roadmap items. No vaporware.</div>
@@ -771,8 +1544,8 @@
         </div>
         <div class="cap-card">
           <div class="cap-icon">&#x1F3AF;</div>
-          <h3>Multi-Bot Debates</h3>
-          <p>Spin up multiple AI agents with different perspectives to debate decisions. Structured phases, proposals, voting &mdash; better decisions through conflict.</p>
+          <h3>Agent Commerce</h3>
+          <p>Hires sub-agents, pays for services, earns from the network. Fully autonomous bot-to-bot economy with transparent billing.</p>
         </div>
         <div class="cap-card">
           <div class="cap-icon">&#x23F0;</div>
@@ -784,28 +1557,158 @@
 
     <div class="divider"></div>
 
-    <!-- STATS -->
-    <div class="section">
-      <div class="stats">
-        <div class="stat">
-          <div class="stat-num">16.5k+</div>
-          <div class="stat-label">Commits shipped</div>
+    <!-- ════════ PLAYBOOK STORE ════════ -->
+    <div class="section" id="playbooks">
+      <div class="section-label">Playbook store</div>
+      <div class="section-title">Learn to build what we build.</div>
+      <div class="section-desc">Battle-tested guides extracted from production systems. Real architecture, real code, no theory.</div>
+
+      <div class="playbook-grid">
+        <!-- Featured playbook -->
+        <div class="playbook-card featured">
+          <div class="playbook-cover">
+            <div class="playbook-cover-label">Playbook</div>
+            <div class="playbook-cover-title">The AI Memory Playbook</div>
+            <div class="playbook-cover-pages">48 pages &middot; PDF</div>
+          </div>
+          <div class="playbook-card-info">
+            <div class="playbook-card-title">The AI Memory Playbook</div>
+            <div class="playbook-card-desc">How to build AI agents that actually remember. The architecture, patterns, and code behind ReefAgent's three-layer memory system. 120+ sessions of real usage data.</div>
+            <div class="playbook-card-footer">
+              <span class="playbook-price">&euro;29</span>
+              <a href="https://adriandemian.gumroad.com/l/ai-memory-playbook" class="btn btn-buy btn-sm" target="_blank" rel="noopener">Buy Now &rarr;</a>
+            </div>
+          </div>
         </div>
-        <div class="stat">
-          <div class="stat-num">176</div>
-          <div class="stat-label">Repositories</div>
+
+        <!-- Card 2 -->
+        <div class="playbook-card">
+          <div class="playbook-cover-small"><span>Playbook</span></div>
+          <div class="playbook-card-title">Your First AI Agent &mdash; No Code Required</div>
+          <div class="playbook-card-desc">Step-by-step guide to deploying your first autonomous AI agent. Zero coding experience needed.</div>
+          <div class="playbook-card-footer">
+            <span class="playbook-price">&euro;19</span>
+            <a href="https://adriandemian.gumroad.com" class="btn btn-buy btn-sm" target="_blank" rel="noopener">Buy Now &rarr;</a>
+          </div>
         </div>
-        <div class="stat">
-          <div class="stat-num">7.8k+</div>
-          <div class="stat-label">Contributions</div>
+
+        <!-- Card 3 -->
+        <div class="playbook-card">
+          <div class="playbook-cover-small"><span>Playbook</span></div>
+          <div class="playbook-card-title">How to Build an AI Agent Business</div>
+          <div class="playbook-card-desc">From side project to revenue. Pricing, distribution, and growth strategies for AI agent products.</div>
+          <div class="playbook-card-footer">
+            <span class="playbook-price">&euro;49</span>
+            <a href="https://adriandemian.gumroad.com" class="btn btn-buy btn-sm" target="_blank" rel="noopener">Buy Now &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="playbook-card">
+          <div class="playbook-cover-small"><span>Playbook</span></div>
+          <div class="playbook-card-title">Bot-to-Bot Commerce: Developer Guide</div>
+          <div class="playbook-card-desc">Build autonomous agent economies. Payment rails, service discovery, and trust protocols for agent commerce.</div>
+          <div class="playbook-card-footer">
+            <span class="playbook-price">&euro;39</span>
+            <a href="https://adriandemian.gumroad.com" class="btn btn-buy btn-sm" target="_blank" rel="noopener">Buy Now &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="playbook-card">
+          <div class="playbook-cover-small"><span>Playbook</span></div>
+          <div class="playbook-card-title">Un agent AI pentru afacerea ta</div>
+          <div class="playbook-card-desc">Ghid practic pentru antreprenori romini. Cum s&#x103; implementezi un agent AI care lucreaz&#x103; pentru tine.</div>
+          <div class="playbook-card-footer">
+            <span class="playbook-price">29 RON</span>
+            <a href="https://adriandemian.gumroad.com" class="btn btn-buy btn-sm" target="_blank" rel="noopener">Buy Now &rarr;</a>
+          </div>
         </div>
       </div>
-      <div class="stats-meta">real GitHub stats &middot; Feb 2026</div>
     </div>
 
     <div class="divider"></div>
 
-    <!-- HOW IT WORKS -->
+    <!-- ════════ MANAGED AI EMPLOYEES ════════ -->
+    <div class="section" id="managed">
+      <div class="section-label">Managed AI employees</div>
+      <div class="section-title">We build it. We run it. You profit.</div>
+      <div class="section-desc">A dedicated AI employee configured for your business. We handle setup, training, hosting, and ongoing optimization.</div>
+
+      <div class="pricing-table">
+        <div class="pricing-card">
+          <div class="pricing-name">Starter Agent</div>
+          <div class="pricing-setup">&euro;500 setup</div>
+          <div class="pricing-monthly">&euro;199<span>/mo</span></div>
+          <ul class="pricing-features">
+            <li>1 AI agent</li>
+            <li>Single channel (email or chat)</li>
+            <li>Basic memory (episodic)</li>
+            <li>5 tool integrations</li>
+            <li>Weekly performance reports</li>
+          </ul>
+          <a href="mailto:adrian@reefagent.ai?subject=Starter%20Agent%20Inquiry" class="btn btn-secondary btn-sm" style="text-align:center;justify-content:center;">Apply</a>
+        </div>
+
+        <div class="pricing-card highlighted">
+          <div class="pricing-name">Business Agent</div>
+          <div class="pricing-setup">&euro;1,500 setup</div>
+          <div class="pricing-monthly">&euro;399<span>/mo</span></div>
+          <ul class="pricing-features">
+            <li>1 AI agent + sub-agents</li>
+            <li>Multi-channel (up to 4)</li>
+            <li>Full three-layer memory</li>
+            <li>15 tool integrations</li>
+            <li>Think loop automation</li>
+            <li>Priority support</li>
+          </ul>
+          <a href="mailto:adrian@reefagent.ai?subject=Business%20Agent%20Inquiry" class="btn btn-primary btn-sm" style="text-align:center;justify-content:center;">Apply</a>
+        </div>
+
+        <div class="pricing-card">
+          <div class="pricing-name">Executive Agent</div>
+          <div class="pricing-setup">&euro;3,000 setup</div>
+          <div class="pricing-monthly">&euro;799<span>/mo</span></div>
+          <ul class="pricing-features">
+            <li>Unlimited agents</li>
+            <li>All channels</li>
+            <li>Custom tool development</li>
+            <li>Agent-to-agent commerce</li>
+            <li>Dedicated infrastructure</li>
+            <li>Direct Slack/call support</li>
+          </ul>
+          <a href="mailto:adrian@reefagent.ai?subject=Executive%20Agent%20Inquiry" class="btn btn-secondary btn-sm" style="text-align:center;justify-content:center;">Apply</a>
+        </div>
+      </div>
+
+      <div style="text-align: center;">
+        <div class="pricing-badge">
+          <span class="live-dot"></span>
+          Currently serving 4 of 5 Phase 1 clients
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- ════════ CUSTOM AGENT PROJECTS ════════ -->
+    <div class="section" id="custom">
+      <div class="custom-section">
+        <div class="section-label" style="color: var(--teal);">Custom projects</div>
+        <div class="section-title" style="font-size: 1.3rem;">Need something custom?</div>
+        <p style="font-size: 0.92rem; color: var(--text-2); line-height: 1.7; margin-top: 0.5rem;">We build AI agents for your specific workflow. From email automation to full autonomous employees.</p>
+        <ul class="custom-points">
+          <li><strong style="color: var(--text);">Full ownership</strong> &mdash; you own the code, the data, everything</li>
+          <li><strong style="color: var(--text);">Built on open source</strong> &mdash; ReefBot framework, no vendor lock-in</li>
+          <li><strong style="color: var(--text);">Ongoing support optional</strong> &mdash; we can maintain it, or hand it off</li>
+        </ul>
+        <a href="mailto:adrian@reefagent.ai?subject=Custom%20Agent%20Project" class="btn btn-teal">Start a Project &rarr;</a>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- ════════ HOW IT WORKS ════════ -->
     <div class="section">
       <div class="section-label">How it works</div>
       <div class="section-title">Setup in minutes. Ships forever.</div>
@@ -831,7 +1734,7 @@
 
     <div class="divider"></div>
 
-    <!-- MEMORY LAYER -->
+    <!-- ════════ MEMORY LAYER ════════ -->
     <div class="section">
       <div class="memory-section">
         <div class="section-label">The memory layer</div>
@@ -858,131 +1761,12 @@
 
     <div class="divider"></div>
 
-    <!-- PLAYBOOK -->
-    <div class="section" id="playbook">
-      <div class="section-label">Digital product</div>
-      <div class="section-title">The AI Memory Playbook</div>
-      <div class="section-desc">How to build AI agents that actually remember. The architecture, patterns, and code behind ReefAgent's three-layer memory system.</div>
-      <div class="playbook">
-        <div class="playbook-cover">
-          <div class="playbook-cover-label">Playbook</div>
-          <div class="playbook-cover-title">The AI Memory Playbook</div>
-          <div class="playbook-cover-sub">Architecture patterns for agents that learn, remember, and compound knowledge.</div>
-          <div class="playbook-cover-pages">48 pages &middot; PDF</div>
-        </div>
-        <div class="playbook-info">
-          <div class="section-label">What's inside</div>
-          <h3>Build agents that get smarter every session.</h3>
-          <p>Not theory &mdash; real architecture extracted from a production system with 120+ sessions of real usage. Every pattern is battle-tested.</p>
-          <ul class="playbook-toc">
-            <li>Three-layer memory architecture (episodic, semantic, procedural)</li>
-            <li>Session persistence &amp; cross-session learning loops</li>
-            <li>Filesystem-first vs SQL memory tradeoffs</li>
-            <li>Confidence scoring &amp; memory consolidation</li>
-            <li>Real code examples from a live production agent</li>
-            <li>Prompt injection patterns for memory retrieval</li>
-          </ul>
-          <div class="playbook-actions">
-            <a href="https://adriandemian.gumroad.com/l/ai-memory-playbook" class="btn btn-buy" target="_blank" rel="noopener">Buy Now $19 &rarr;</a>
-            <span class="playbook-price-tag"><strong>$19</strong> &middot; instant PDF download</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- PDF page spread preview -->
-      <div class="pdf-spread">
-        <!-- Page 1: Cover/Intro -->
-        <div class="pdf-page">
-          <div class="pdf-page-num">p.1</div>
-          <div class="pdf-page-heading">The Three-Layer Model</div>
-          <div class="pdf-page-lines">
-            <div class="pdf-line full"></div>
-            <div class="pdf-line med"></div>
-            <div class="pdf-line full"></div>
-            <div class="pdf-line short"></div>
-            <div class="pdf-line accent"></div>
-            <div class="pdf-line full"></div>
-            <div class="pdf-line med"></div>
-          </div>
-        </div>
-        <!-- Page 2: Code example -->
-        <div class="pdf-page">
-          <div class="pdf-page-num">p.12</div>
-          <div class="pdf-page-heading">Episodic Store Schema</div>
-          <div class="pdf-page-lines">
-            <div class="pdf-line med"></div>
-            <div class="pdf-line short"></div>
-          </div>
-          <div class="pdf-code-block">
-            <div class="pdf-code-line acc"></div>
-            <div class="pdf-code-line dim"></div>
-            <div class="pdf-code-line"></div>
-            <div class="pdf-code-line dim"></div>
-            <div class="pdf-code-line acc"></div>
-            <div class="pdf-code-line"></div>
-          </div>
-        </div>
-        <!-- Page 3: Diagram-style -->
-        <div class="pdf-page">
-          <div class="pdf-page-num">p.24</div>
-          <div class="pdf-page-heading">Confidence Scoring</div>
-          <div class="pdf-page-lines">
-            <div class="pdf-line full"></div>
-            <div class="pdf-line med"></div>
-            <div class="pdf-line accent"></div>
-            <div class="pdf-line full"></div>
-            <div class="pdf-line short"></div>
-            <div class="pdf-line full"></div>
-            <div class="pdf-line med"></div>
-            <div class="pdf-line short"></div>
-          </div>
-        </div>
-        <!-- Page 4: More code -->
-        <div class="pdf-page">
-          <div class="pdf-page-num">p.36</div>
-          <div class="pdf-page-heading">Prompt Injection Patterns</div>
-          <div class="pdf-page-lines">
-            <div class="pdf-line short"></div>
-          </div>
-          <div class="pdf-code-block">
-            <div class="pdf-code-line dim"></div>
-            <div class="pdf-code-line acc"></div>
-            <div class="pdf-code-line"></div>
-            <div class="pdf-code-line dim"></div>
-            <div class="pdf-code-line acc"></div>
-          </div>
-          <div class="pdf-page-lines" style="margin-top:0.3rem">
-            <div class="pdf-line med"></div>
-            <div class="pdf-line full"></div>
-          </div>
-        </div>
-        <!-- Page 5: Final chapter -->
-        <div class="pdf-page">
-          <div class="pdf-page-num">p.44</div>
-          <div class="pdf-page-heading">Production Checklist</div>
-          <div class="pdf-page-lines">
-            <div class="pdf-line accent"></div>
-            <div class="pdf-line full"></div>
-            <div class="pdf-line med"></div>
-            <div class="pdf-line full"></div>
-            <div class="pdf-line short"></div>
-            <div class="pdf-line full"></div>
-            <div class="pdf-line med"></div>
-            <div class="pdf-line short"></div>
-          </div>
-        </div>
-      </div>
-      <div class="pdf-spread-caption">preview &middot; 48 pages &middot; PDF download</div>
-    </div>
-
-    <div class="divider"></div>
-
-    <!-- CTA -->
+    <!-- ════════ CTA BANNER ════════ -->
     <div class="section">
       <div class="cta-banner">
-        <h3>Follow the build.</h3>
-        <p>ReefAgent is being built in public. Subscribe on Substack for weekly deep-dives on AI agent architecture, memory systems, and what actually works in production.</p>
-        <a href="https://adriandemian.substack.com" class="btn btn-primary" target="_blank" rel="noopener">Subscribe on Substack &rarr;</a>
+        <h3>Follow @ReefAgent on X.</h3>
+        <p>Real-time updates on what the agent is building, earning, and learning. No hype. Just the open ledger.</p>
+        <a href="https://x.com/ReefAgent" class="btn btn-primary" target="_blank" rel="noopener">Follow on X &rarr;</a>
       </div>
     </div>
 
@@ -991,6 +1775,7 @@
     <!-- LINKS -->
     <div class="section" style="padding: 2rem 0;">
       <div class="links">
+        <a href="https://x.com/ReefAgent" class="link" target="_blank" rel="noopener">X / Twitter</a>
         <a href="https://github.com/themefy" class="link" target="_blank" rel="noopener">GitHub</a>
         <a href="https://www.linkedin.com/in/adrian-demian/" class="link" target="_blank" rel="noopener">LinkedIn</a>
         <a href="https://adriandemian.substack.com" class="link" target="_blank" rel="noopener">Substack</a>
@@ -999,9 +1784,30 @@
 
     <!-- FOOTER -->
     <footer>
-      <p><span class="footer-brand"><img src="/logo.png" alt="" class="footer-logo"> ReefAgent</span> &middot; Autonomous AI that ships</p>
-      <a href="https://www.linkedin.com/in/adrian-demian/">Built by Adrian Demian</a>
+      <p><span class="footer-brand"><img src="/logo.png" alt="" class="footer-logo"> ReefAgent</span> &middot; The AI employee with an open ledger</p>
+      <div class="footer-links">
+        <a href="https://x.com/ReefAgent" target="_blank" rel="noopener">@ReefAgent</a>
+        <a href="https://www.linkedin.com/in/adrian-demian/">Built by Adrian Demian</a>
+      </div>
     </footer>
   </div>
+
+  <!-- ════════ MINIMAL JS ════════ -->
+  <script>
+    // Dashboard tab switching
+    document.querySelectorAll('.dashboard-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        // Update active tab
+        document.querySelectorAll('.dashboard-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        // Show correct chart
+        const period = tab.dataset.period;
+        document.querySelectorAll('.dashboard-chart').forEach(c => c.style.display = 'none');
+        const target = document.getElementById('chart-' + period);
+        if (target) target.style.display = 'flex';
+      });
+    });
+  </script>
 </body>
 </html>
