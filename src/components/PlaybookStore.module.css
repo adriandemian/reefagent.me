@@ -140,6 +140,12 @@
   font-variant-numeric: tabular-nums;
 }
 
+.buyButtons {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
 @media (max-width: 640px) {
   .grid {
     grid-template-columns: 1fr;

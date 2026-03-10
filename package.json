@@ -8,10 +8,13 @@
     "start": "next start"
   },
   "dependencies": {
+    "@privy-io/node": "^0.10.1",
     "next": "^15.1.0",
+    "next-plausible": "^3.12.5",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "stripe": "^17.5.0"
+    "stripe": "^17.5.0",
+    "viem": "^2.47.1"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
