@@ -43,22 +43,16 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
-      <head>
-        <Script
-          async
-          src="https://plausible.io/js/pa-28E2ElxcudYI1jevuNkh0.js"
-          strategy="afterInteractive"
-        />
-        <Script id="plausible-init" strategy="afterInteractive">
-          {`window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init()`}
-        </Script>
-      </head>
       <body>
         <div className="wrap">
           <Navbar />
           {children}
           <Footer />
         </div>
+        <Script
+          src="https://plausible.io/js/pa-28E2ElxcudYI1jevuNkh0.js"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
