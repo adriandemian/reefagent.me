@@ -1,0 +1,43 @@
+.footer {
+  padding: 2.5rem 0;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.footerText {
+  font-size: 0.75rem;
+  color: var(--text-3);
+}
+
+.footerBrand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.footerLogo {
+  opacity: 0.4;
+  border-radius: 50%;
+}
+
+.footerLinks {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.footerLinks a {
+  color: var(--text-3);
+  text-decoration: none;
+  font-size: 0.75rem;
+  transition: color 0.15s;
+}
+
+.footerLinks a:hover {
+  color: var(--text-2);
+}

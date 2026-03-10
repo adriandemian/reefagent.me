@@ -1,0 +1,14 @@
+.indicator {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  color: var(--text-3);
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+}
+
+.text {
+  white-space: nowrap;
+}
