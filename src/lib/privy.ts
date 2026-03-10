@@ -1,9 +1,16 @@
 import { PrivyClient } from '@privy-io/node';
 
-export const privy = new PrivyClient({
-  appId: process.env.PRIVY_API_KEY!,
-  appSecret: process.env.PRIVY_API_SECRET!,
-});
+let _privy: PrivyClient | null = null;
+
+export function privy() {
+  if (!_privy) {
+    _privy = new PrivyClient({
+      appId: process.env.PRIVY_API_KEY!,
+      appSecret: process.env.PRIVY_API_SECRET!,
+    });
+  }
+  return _privy;
+}
 
 // USDC on Base (chain ID 8453)
 export const BASE_CHAIN_ID = 8453;
@@ -16,7 +23,7 @@ export const USDC_DECIMALS = 6;
  * Run once, then store the wallet ID and address in env vars.
  */
 export async function createServerWallet() {
-  const wallet = await privy.wallets().create({
+  const wallet = await privy().wallets().create({
     chain_type: 'ethereum',
   });
   return {
@@ -30,7 +37,7 @@ export async function createServerWallet() {
  * Get an existing wallet by ID.
  */
 export async function getWallet(walletId: string) {
-  return privy.wallets().get(walletId);
+  return privy().wallets().get(walletId);
 }
 
 /**
@@ -42,7 +49,7 @@ export async function sendTransaction(
   data: string,
   value: string = '0x0',
 ) {
-  return privy.wallets().rpc(walletId, {
+  return privy().wallets().rpc(walletId, {
     method: 'eth_sendTransaction',
     caip2: BASE_CAIP2,
     params: {
