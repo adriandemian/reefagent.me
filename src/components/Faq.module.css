@@ -1,0 +1,22 @@
+.list {
+  border-top: 1px solid var(--border);
+}
+
+.item {
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.question {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.answer {
+  font-size: 0.84rem;
+  line-height: 1.7;
+  color: var(--text-2);
+  max-width: 640px;
+}

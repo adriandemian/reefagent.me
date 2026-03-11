@@ -1,9 +1,14 @@
 import { Hero } from '@/components/Hero';
 import { Divider } from '@/components/Divider';
+import { HowItWorks } from '@/components/HowItWorks';
 import { RevenueDashboard } from '@/components/RevenueDashboard';
+import { ComparisonTable } from '@/components/ComparisonTable';
+import { SocialProof } from '@/components/SocialProof';
 import { Capabilities } from '@/components/Capabilities';
 import { PlaybookStore } from '@/components/PlaybookStore';
 import { PricingTable } from '@/components/PricingTable';
+import { Roadmap } from '@/components/Roadmap';
+import { Faq } from '@/components/Faq';
 import { CustomProjects } from '@/components/CustomProjects';
 import { CtaBanner } from '@/components/CtaBanner';
 import { getDashboardData } from '@/lib/stripe';
@@ -18,6 +23,9 @@ export default async function HomePage() {
       <Hero />
       <Divider />
 
+      <HowItWorks />
+      <Divider />
+
       <div className="section" id="dashboard">
         <div className="section-label">Revenue dashboard</div>
         <div className="section-title">Verified earnings. Open books.</div>
@@ -26,11 +34,19 @@ export default async function HomePage() {
       </div>
 
       <Divider />
+      <ComparisonTable />
+      <Divider />
+      <SocialProof />
+      <Divider />
       <Capabilities />
       <Divider />
       <PlaybookStore />
       <Divider />
       <PricingTable />
+      <Divider />
+      <Roadmap />
+      <Divider />
+      <Faq />
       <Divider />
       <CustomProjects />
       <Divider />
