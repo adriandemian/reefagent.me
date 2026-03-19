@@ -86,24 +86,24 @@ Each persona maps to a different revenue layer from Chapter 3. You do not need t
 
 **Conversion path:** Technical credibility first — share architecture insights, contribute to their discussions, offer to review their approach. Then introduce the runtime as a faster path to their goals.
 
-### Persona 5: The Small Business Owner (Romania-specific)
 
-**Who:** Romanian SMBs with 1-50 employees. Micro-enterprises taking advantage of the 1% tax regime (up to EUR 100K revenue).
+### Persona 5: The Local Market Business Owner
 
-**Pain:** They need to comply with e-Factura (mandatory July 2026). They want to automate customer communications but everything is in English. They see larger competitors using AI and feel left behind.
+**Who:** Small businesses with 1-50 employees in your local market. Every geography has businesses that haven't adopted AI yet.
 
-**What they buy:** Managed AI Employee with Romanian language support. Localized agent deployments. e-Factura compliance automation.
+**Pain:** They see larger competitors using AI and feel left behind. They want to automate customer communications but the tools feel too complex or too English-centric. Compliance deadlines keep stacking up.
+
+**What they buy:** Managed AI Employee with local language support. Localized agent deployments. Compliance automation relevant to their market.
 
 **Where to find them:**
-- LinkedIn: location Romania + title contains "Director" OR "Administrator" + company size 1-50
-- Romanian business communities: StartupCafe.ro, Facebook business groups
-- Accounting firm partnerships: accountants serving micro-enterprises
+- LinkedIn: location filter for your region + title contains "Director" OR "Owner" + company size 1-50
+- Local business communities, industry-specific Facebook groups, regional Slack communities
+- Accounting firm partnerships: accountants serving small businesses are the best referral channel
 
-**Trigger event:** e-Factura deadline approaching. They posted about compliance anxiety. They asked about AI tools in Romanian.
+**Trigger event:** A compliance deadline is approaching. They posted about feeling overwhelmed by new regulations. They asked about AI tools in their local language.
 
-**Conversion path:** Romanian-language content (rare in the AI space). Free e-Factura compliance checklist as lead magnet. Then managed agent deployment for full automation.
+**Conversion path:** Local-language content (rare in the AI space — most content is English-only). Free compliance checklist as lead magnet. Then managed agent deployment for full automation. Price in local currency if possible for maximum conversion.
 
----
 
 ## The Outreach Sequences
 

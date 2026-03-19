@@ -2,7 +2,7 @@
 
 ## Build, Deploy, and Monetize Your First Autonomous Agent
 
-**By Adrian Demian — Co-founder, AIGENTIVE**
+**By Adrian Demian**
 
 ---
 

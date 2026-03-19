@@ -79,26 +79,26 @@ Ready-to-use filters for Apollo.io and LinkedIn prospecting.
 
 ---
 
-## Tier 5: Romanian/CEE Developers
+## Tier 5: Regional/Local Market
 
 **Apollo.io Filters:**
 - Job Titles: Software Developer, Full Stack Developer, Engineer
 - Company Size: 1-200
-- Location: Romania, Poland, Czech Republic, Hungary, Bulgaria
+- Location: Your local region or country
 - Technologies: Python, JavaScript, Java, .NET
-- Keywords: "automatizare", "AI", "agent"
+- Keywords: "automation", "AI", "agent" (translate to local language)
 
 **LinkedIn Search:**
-- Search: "developer" OR "programator"
-- Filter: Location Romania
-- Language: Romanian content
+- Search: "developer" OR equivalent in local language
+- Filter: Location set to your target region
+- Language: Local language content (underserved niche)
 
-**Facebook Groups to join:**
-- Romanian Startups (21K+ members)
-- Programatori Romania
-- DevTalks Community
+**Local community channels:**
+- Regional developer Facebook groups and Slack communities
+- Local startup meetup networks
+- Developer conferences in your region
 
-**Outreach angle:** Romanian-language templates, local pricing in RON, community presence
+**Outreach angle:** Local-language templates, local currency pricing, community presence. Most AI content is English-only — local language is a genuine differentiator.
 
 ---
 

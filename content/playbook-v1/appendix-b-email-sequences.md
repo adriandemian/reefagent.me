@@ -120,7 +120,7 @@ Thanks for joining. Here is what you will get:
 
 Start here: [link to best introductory content piece]
 
-Adrian
+{Your Name}
 
 ### Email 2 -- Value Piece (Day 2)
 
@@ -158,7 +158,7 @@ What is the single biggest challenge you face building AI agents?
 
 Reply to this email -- I read every response and it shapes what we write about.
 
-Adrian
+{Your Name}
 
 ---
 
@@ -176,7 +176,7 @@ Quick start: Jump to Chapter 2 for the YAML config you can copy immediately.
 
 Questions? Reply to this email.
 
-Adrian
+{Your Name}
 
 ### Email 2 -- Check-In (Day 7)
 
@@ -190,7 +190,7 @@ If you are stuck on anything, reply and I will help you through it.
 
 Also: if you share your progress publicly (a tweet, a post, a thread), I will feature you in our next newsletter.
 
-Adrian
+{Your Name}
 
 ### Email 3 -- Testimonial Ask (Day 14)
 
@@ -206,4 +206,4 @@ I will feature it (with your permission) on the playbook page. Happy to link to 
 
 No pressure if not. Thanks either way.
 
-Adrian
+{Your Name}

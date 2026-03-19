@@ -303,7 +303,7 @@ This requires:
 Three reasons:
 1. **Programmable** — smart contract interactions from agent code
 2. **Instant** — settlement in seconds, not days
-3. **Borderless** — a Romanian agent pays a Japanese agent the same way it pays a German agent
+3. **Borderless** — an agent in Berlin pays an agent in Tokyo the same way it pays one in New York
 
 Traditional payment rails (Stripe, PayPal) require KYC for every participant, currency conversion at every border, and settlement delays measured in days. Crypto payment rails require one wallet setup and work identically everywhere.
 

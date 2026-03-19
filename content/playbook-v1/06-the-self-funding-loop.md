@@ -22,7 +22,7 @@ Why 30%? Because the remaining 70% needs to cover:
 - Your time (even if you do not pay yourself yet, track the opportunity cost)
 - Content production costs (design, editing, tools)
 - Sales and outreach tools
-- Taxes (21% VAT in Romania, plus income tax)
+- Taxes (VAT + income tax — varies by jurisdiction)
 - Reinvestment into the next revenue layer
 - Profit margin for sustainability
 
@@ -169,8 +169,8 @@ By month 6, a well-executed playbook should have:
 **Actions this month:**
 - Evaluate hiring (first employee or contractor)
 - Begin marketplace development if not already started
-- Consider incorporating (Romania SRL at 1% tax up to EUR 100K revenue)
-- Plan for VAT registration (mandatory at EUR 88,500 threshold in Romania)
+- Consider incorporating in a tax-friendly jurisdiction for your situation
+- Plan for VAT or sales tax registration (check your local threshold)
 
 **Key milestone:** The agent generates more revenue than a junior employee would cost. You can now hire AND keep the agent running.
 
@@ -342,31 +342,28 @@ The fix: implement the tracking system from the beginning of this chapter. Weekl
 
 ---
 
+
 ## The Tax Reality
 
-Self-funding means real money, and real money means taxes. This section is specifically relevant for Romania-based founders (our home base), but the principle applies everywhere: plan for taxes before they arrive, not after.
+Self-funding means real money, and real money means taxes. Tax obligations vary wildly by jurisdiction, so consult a local accountant before your first dollar of revenue. The principles below apply everywhere.
 
-### Romanian Micro-Enterprise Tax
+### Tax Planning Basics
 
-If your total annual revenue is under EUR 100,000 (reduced from EUR 250,000 in 2025), you qualify for the 1% turnover tax. This is one of the most favorable tax regimes in the EU.
+Key things to budget for:
+- **Income or corporate tax** — rates range from 0% to 40%+ depending on your jurisdiction and entity type
+- **VAT or sales tax** — most jurisdictions require registration above a revenue threshold. Check your local rules.
+- **Payment processor fees** — Stripe takes 2.9% + $0.30 per transaction. Factor this into every pricing decision.
 
-At $2,000/month revenue ($24,000/year, approximately EUR 22,000), your annual tax is roughly EUR 220. That is approximately $20/month.
-
-Above EUR 100,000 annual revenue, you switch to the standard 16% corporate income tax. Plan for this threshold — it changes your pricing and margin calculations significantly.
-
-### VAT Considerations
-
-Romanian VAT is 21% (increased from 19% in August 2025). For B2C digital product sales within the EU, VAT is charged based on the customer's country. For B2B sales, the reverse charge mechanism applies.
-
-What this means for your playbook pricing: A $29 playbook sold to a Romanian consumer nets you approximately $23.28 after VAT and Stripe fees. Build your revenue projections on net numbers, not gross.
+For digital products: net revenue = gross price minus VAT/sales tax minus processor fees. A $29 playbook might net $22-25 depending on your jurisdiction. Build your revenue projections on net numbers, not gross.
 
 ### The USDC Tax Question
 
-USDC payments are taxable income. The Romanian tax authority (ANAF) treats cryptocurrency-denominated income at the EUR exchange rate on the date of receipt. Keep records of every USDC payment with the date, amount, EUR equivalent, and transaction hash.
+USDC and crypto payments are taxable income in most jurisdictions. Tax authorities generally treat cryptocurrency-denominated income at the fiat exchange rate on the date of receipt. Keep records of every USDC payment: date, amount, fiat equivalent, and transaction hash.
 
 This is another reason to track everything in your agent's episodic memory. Tax compliance is much easier when every transaction is already logged with timestamps and amounts.
 
 ---
+
 
 ## Scaling Beyond Self-Funding
 
