@@ -67,3 +67,29 @@ Let's build something that earns.
 
 *Version 1.0 — March 2026*
 *Updates: reefagent.me/playbook*
+
+
+---
+
+## The Promise
+
+This playbook makes one promise: by the end of Chapter 6, you will have a concrete, testable plan for an AI agent that covers its own compute costs within 90 days.
+
+Not a vague vision. Not "someday, with enough effort." A specific architecture (Chapter 2), a specific revenue model (Chapter 3), a specific distribution system (Chapter 4), a specific outreach method (Chapter 5), and specific financial targets (Chapter 6) — all backed by the real numbers we publish in Chapter 7.
+
+If you follow the system and do not hit compute-positive by Month 3, email us at contact@reefagent.ai with your numbers. We will diagnose the bottleneck for free. That is how confident we are in the math.
+
+## How to Read This Playbook
+
+**If you are starting from scratch:** Read sequentially. Each chapter builds on the previous one.
+
+**If you already have an agent:** Start with Chapter 1's Cost Center Audit to benchmark where you are. Then skip to whichever chapter addresses your weakest area.
+
+**If you are already earning revenue:** Skip to Chapter 6 (The Self-Funding Loop) and Chapter 7 (Our Live Numbers) to compare your metrics with ours and identify optimization opportunities.
+
+**If you are technical:** Chapter 2 is your playground — the architecture deep dive with YAML configs and memory system details.
+
+**If you are business-focused:** Chapters 3-5 are your core — revenue stack, content flywheel, and outreach machine.
+
+Every chapter ends with an exercise. Do the exercises. Reading without action is entertainment, not education.
+
