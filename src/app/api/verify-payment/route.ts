@@ -5,6 +5,7 @@ export const dynamic = 'force-dynamic';
 
 const PRODUCTS: Record<string, { name: string; priceUsdc: number }> = {
   'first-agent': { name: 'Your First AI Agent — No Code Required', priceUsdc: 19 },
+  'pays-bills': { name: 'The AI Agent That Pays Its Own Bills', priceUsdc: 29 },
 };
 
 export async function POST(req: Request) {

@@ -1,6 +1,14 @@
 import styles from './PlaybookStore.module.css';
 
-const playbook = {
+const featured = {
+  title: 'The AI Agent That Pays Its Own Bills',
+  desc: 'Build, deploy, and monetize your first autonomous agent. 7-chapter playbook covering architecture, revenue stacks, content flywheels, outreach automation, and the self-funding loop. Includes config templates, email sequences, and revenue calculators.',
+  price: '$29',
+  link: process.env.NEXT_PUBLIC_STRIPE_LINK_PAYS_BILLS || 'https://buy.stripe.com/test_placeholder_pays_bills',
+  pages: '55-page PDF Guide',
+};
+
+const secondary = {
   title: 'Your First AI Agent \u2014 No Code Required',
   desc: 'Step-by-step guide to deploying your first autonomous AI agent. Zero coding experience needed.',
   price: '$19',
@@ -11,15 +19,9 @@ const playbook = {
 const comingSoon = [
   {
     title: 'The AI Memory Playbook',
-    desc: 'How to build AI agents that actually remember. The architecture, patterns, and code behind ReefAgent\u2019s three-layer memory system. 120+ sessions of real usage data.',
+    desc: 'How to build AI agents that actually remember. The architecture, patterns, and code behind three-layer memory systems. 120+ sessions of real usage data.',
     price: '$29',
     pages: '48 pages',
-  },
-  {
-    title: 'How to Build an AI Agent Business',
-    desc: 'From side project to revenue. Pricing, distribution, and growth strategies for AI agent products.',
-    price: '$49',
-    pages: 'Coming 2026',
   },
   {
     title: 'Bot-to-Bot Commerce: Developer Guide',
@@ -40,16 +42,33 @@ export function PlaybookStore() {
         <div className={`${styles.card} ${styles.featured}`}>
           <div className={styles.cover}>
             <div className={styles.coverLabel}>Playbook</div>
-            <div className={styles.coverTitle}>{playbook.title}</div>
-            <div className={styles.coverPages}>{playbook.pages}</div>
+            <div className={styles.coverTitle}>{featured.title}</div>
+            <div className={styles.coverPages}>{featured.pages}</div>
           </div>
           <div className={styles.cardInfo}>
-            <div className={styles.cardTitle}>{playbook.title}</div>
-            <div className={styles.cardDesc}>{playbook.desc}</div>
+            <div className={styles.cardTitle}>{featured.title}</div>
+            <div className={styles.cardDesc}>{featured.desc}</div>
             <div className={styles.cardFooter}>
-              <span className={styles.price}>{playbook.price}</span>
+              <span className={styles.price}>{featured.price}</span>
               <div className={styles.buyButtons}>
-                <a href={playbook.link} className="btn btn-buy btn-sm" target="_blank" rel="noopener">Buy Now &rarr;</a>
+                <a href={featured.link} className="btn btn-buy btn-sm" target="_blank" rel="noopener">Buy Now &rarr;</a>
+                <a href="/pay/usdc?product=pays-bills" className="btn btn-secondary btn-sm">Pay with USDC</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className={styles.card}>
+          <div className={styles.coverSmall}>
+            <span>Playbook</span>
+          </div>
+          <div className={styles.cardInfo}>
+            <div className={styles.cardTitle}>{secondary.title}</div>
+            <div className={styles.cardDesc}>{secondary.desc}</div>
+            <div className={styles.cardFooter}>
+              <span className={styles.price}>{secondary.price}</span>
+              <div className={styles.buyButtons}>
+                <a href={secondary.link} className="btn btn-buy btn-sm" target="_blank" rel="noopener">Buy Now &rarr;</a>
                 <a href="/pay/usdc?product=first-agent" className="btn btn-secondary btn-sm">Pay with USDC</a>
               </div>
             </div>
