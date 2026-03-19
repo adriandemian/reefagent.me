@@ -5,6 +5,7 @@ import { PlaybookStore } from '@/components/PlaybookStore';
 import { PricingTable } from '@/components/PricingTable';
 import { CustomProjects } from '@/components/CustomProjects';
 import { Faq } from '@/components/Faq';
+import { NewsletterSignup } from '@/components/NewsletterSignup';
 import { CtaBanner } from '@/components/CtaBanner';
 import { getDashboardData } from '@/lib/stripe';
 
@@ -33,6 +34,8 @@ export default async function HomePage() {
       <CustomProjects />
       <Divider />
       <Faq />
+      <Divider />
+      <NewsletterSignup />
       <Divider />
       <CtaBanner />
     </>
