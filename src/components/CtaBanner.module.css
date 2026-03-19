@@ -26,8 +26,37 @@
   padding: 0.8rem 2rem;
 }
 
+.actions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 1.25rem;
+}
+
+.ghost {
+  background: transparent;
+}
+
+.followLink {
+  display: inline-block;
+  font-size: 0.75rem;
+  color: var(--text-3);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.followLink:hover {
+  color: var(--text-2);
+}
+
 @media (max-width: 640px) {
   .banner {
     padding: 2rem 1.5rem;
+  }
+
+  .actions {
+    flex-direction: column;
   }
 }

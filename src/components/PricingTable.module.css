@@ -95,6 +95,14 @@
   flex-shrink: 0;
 }
 
+.ctaNote {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  color: var(--text-3);
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
 @media (max-width: 640px) {
   .table {
     grid-template-columns: 1fr;

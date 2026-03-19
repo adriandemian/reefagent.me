@@ -4,6 +4,7 @@ import { RevenueDashboard } from '@/components/RevenueDashboard';
 import { PlaybookStore } from '@/components/PlaybookStore';
 import { PricingTable } from '@/components/PricingTable';
 import { CustomProjects } from '@/components/CustomProjects';
+import { Faq } from '@/components/Faq';
 import { CtaBanner } from '@/components/CtaBanner';
 import { getDashboardData } from '@/lib/stripe';
 
@@ -30,6 +31,8 @@ export default async function HomePage() {
       <PricingTable />
       <Divider />
       <CustomProjects />
+      <Divider />
+      <Faq />
       <Divider />
       <CtaBanner />
     </>

@@ -13,7 +13,9 @@ const tiers = [
       'Weekly performance reports',
     ],
     highlighted: false,
-    email: 'mailto:contact@reefagent.ai?subject=Starter%20Agent%20Inquiry',
+    cta: 'Start Now \u2192',
+    ctaLink: 'https://buy.stripe.com/starter-agent-placeholder',
+    note: '7-day setup \u2022 Cancel anytime',
   },
   {
     name: 'Business Agent',
@@ -28,7 +30,9 @@ const tiers = [
       'Priority support',
     ],
     highlighted: true,
-    email: 'mailto:contact@reefagent.ai?subject=Business%20Agent%20Inquiry',
+    cta: 'Book a Call \u2192',
+    ctaLink: 'https://cal.com/reefagent/discovery',
+    note: '30-min discovery call \u2022 Custom setup',
   },
   {
     name: 'Executive Agent',
@@ -43,7 +47,9 @@ const tiers = [
       'Direct Slack/call support',
     ],
     highlighted: false,
-    email: 'mailto:contact@reefagent.ai?subject=Executive%20Agent%20Inquiry',
+    cta: 'Contact Us \u2192',
+    ctaLink: 'mailto:contact@reefagent.ai?subject=Executive%20Agent%20Inquiry&body=I\'m%20interested%20in%20the%20Executive%20Agent%20tier.',
+    note: 'White-glove onboarding',
   },
 ];
 
@@ -66,12 +72,14 @@ export function PricingTable() {
               ))}
             </ul>
             <a
-              href={tier.email}
+              href={tier.ctaLink}
               className={`btn ${tier.highlighted ? 'btn-primary' : 'btn-secondary'} btn-sm`}
               style={{ textAlign: 'center', justifyContent: 'center' }}
+              {...(tier.ctaLink.startsWith('http') && !tier.ctaLink.startsWith('mailto') ? { target: '_blank', rel: 'noopener' } : {})}
             >
-              Apply
+              {tier.cta}
             </a>
+            <div className={styles.ctaNote}>{tier.note}</div>
           </div>
         ))}
       </div>

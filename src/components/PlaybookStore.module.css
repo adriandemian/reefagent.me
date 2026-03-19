@@ -146,6 +146,20 @@
   align-items: center;
 }
 
+.badge {
+  font-family: var(--mono);
+  font-size: 0.55rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--teal);
+  background: var(--teal-dim);
+  border: 1px solid rgba(94, 234, 212, 0.2);
+  padding: 0.15rem 0.5rem;
+  border-radius: 20px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
 @media (max-width: 640px) {
   .grid {
     grid-template-columns: 1fr;
