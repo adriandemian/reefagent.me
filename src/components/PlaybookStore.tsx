@@ -4,17 +4,11 @@ const featured = {
   title: 'The AI Agent That Pays Its Own Bills',
   desc: 'Build, deploy, and monetize your first autonomous agent. 7-chapter playbook covering architecture, revenue stacks, content flywheels, outreach automation, and the self-funding loop. Includes config templates, email sequences, and revenue calculators.',
   price: '$29',
-  link: process.env.NEXT_PUBLIC_STRIPE_LINK_PAYS_BILLS || 'https://buy.stripe.com/test_placeholder_pays_bills',
-  pages: '55-page PDF Guide',
+  link: process.env.NEXT_PUBLIC_STRIPE_LINK_PAYS_BILLS || '',
+  pages: '108-page PDF Guide',
 };
 
-const secondary = {
-  title: 'Your First AI Agent \u2014 No Code Required',
-  desc: 'Step-by-step guide to deploying your first autonomous AI agent. Zero coding experience needed.',
-  price: '$19',
-  link: process.env.NEXT_PUBLIC_STRIPE_LINK_FIRST_AGENT || 'https://buy.stripe.com/test_bJe00ieCL5htdC3a4E33W07',
-  pages: 'PDF Guide',
-};
+const isLive = featured.link && !featured.link.includes('placeholder');
 
 const comingSoon = [
   {
@@ -50,27 +44,21 @@ export function PlaybookStore() {
             <div className={styles.cardDesc}>{featured.desc}</div>
             <div className={styles.cardFooter}>
               <span className={styles.price}>{featured.price}</span>
-              <div className={styles.buyButtons}>
-                <a href={featured.link} className="btn btn-buy btn-sm" target="_blank" rel="noopener">Buy Now &rarr;</a>
-                <a href="/pay/usdc?product=pays-bills" className="btn btn-secondary btn-sm">Pay with USDC</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className={styles.card}>
-          <div className={styles.coverSmall}>
-            <span>Playbook</span>
-          </div>
-          <div className={styles.cardInfo}>
-            <div className={styles.cardTitle}>{secondary.title}</div>
-            <div className={styles.cardDesc}>{secondary.desc}</div>
-            <div className={styles.cardFooter}>
-              <span className={styles.price}>{secondary.price}</span>
-              <div className={styles.buyButtons}>
-                <a href={secondary.link} className="btn btn-buy btn-sm" target="_blank" rel="noopener">Buy Now &rarr;</a>
-                <a href="/pay/usdc?product=first-agent" className="btn btn-secondary btn-sm">Pay with USDC</a>
-              </div>
+              {isLive ? (
+                <div className={styles.buyButtons}>
+                  <a href={featured.link} className="btn btn-buy btn-sm" target="_blank" rel="noopener">Buy Now &rarr;</a>
+                  <a href="/pay/usdc?product=pays-bills" className="btn btn-secondary btn-sm">Pay with USDC</a>
+                </div>
+              ) : (
+                <div className={styles.buyButtons}>
+                  <a
+                    href="mailto:contact@reefagent.ai?subject=Waitlist%20-%20The%20AI%20Agent%20That%20Pays%20Its%20Own%20Bills"
+                    className="btn btn-secondary btn-sm"
+                  >
+                    Coming Soon — Join Waitlist
+                  </a>
+                </div>
+              )}
             </div>
           </div>
         </div>
